@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects | Alexander Taffe</title>
+    <meta name="description" content="Personal website and portfolio of Alexander Taffe. Showcasing projects, CV, and professional experience.">
+    
+    <!-- Bulma CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+</head>
+<body>
+    <nav class="navbar is-dark" role="navigation" aria-label="main navigation">
+    <div class="container">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="/">
+                <strong>Alexander Taffe</strong>
+            </a>
+            
+            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
+        </div>
+        
+        <div id="navbarBasicExample" class="navbar-menu">
+            <div class="navbar-start">
+                <a class="navbar-item" href="/">
+                    Home
+                </a>
+                <a class="navbar-item" href="/cv">
+                    CV
+                </a>
+                <a class="navbar-item" href="/projects">
+                    Projects
+                </a>
+                <a class="navbar-item" href="/about">
+                    About
+                </a>
+            </div>
+            
+            <div class="navbar-end">
+                
+                
+                <a class="navbar-item" href="mailto:taffealexander@gmail.com">
+                    <span class="icon">
+                        <i class="fas fa-envelope"></i>
+                    </span>
+                </a>
+                
+            </div>
+        </div>
+    </div>
+</nav>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+    
+    if ($navbarBurgers.length > 0) {
+        $navbarBurgers.forEach(el => {
+            el.addEventListener('click', () => {
+                const target = el.dataset.target;
+                const $target = document.getElementById(target);
+                
+                el.classList.toggle('is-active');
+                $target.classList.toggle('is-active');
+            });
+        });
+    }
+});
+</script>
+
+    
+    <section class="section">
+    <div class="container">
+        <div class="content">
+            <h1 class="title is-1">Projects</h1>
+            
+
+<section class="section">
+    <div class="container">
+        <h1 class="title is-1">My Projects</h1>
+        <p class="subtitle is-4">A collection of projects I've built and worked on</p>
+        
+        <div class="columns is-multiline">
+            
+            <div class="column is-one-third">
+                <div class="card">
+                    
+                    <div class="card-image">
+                        <figure class="image is-16by9">
+                            <img src="/assets/images/project1.jpg" alt="Project Title 1">
+                        </figure>
+                    </div>
+                    
+                    <div class="card-content">
+                        <p class="title is-4">Project Title 1</p>
+                        <p class="subtitle is-6">A brief description of what this project does and what technologies it uses.</p>
+                        
+                        <div class="content">
+                            <div class="tags">
+                                
+                                <span class="tag">JavaScript</span>
+                                
+                                <span class="tag">React</span>
+                                
+                                <span class="tag">Node.js</span>
+                                
+                            </div>
+                        </div>
+                        
+                        <div class="buttons">
+                            
+                            <a href="https://github.com/username/project1" target="_blank" class="button is-dark">
+                                <span class="icon">
+                                    <i class="fab fa-github"></i>
+                                </span>
+                                <span>GitHub</span>
+                            </a>
+                            
+                            
+                            <a href="https://project1-demo.com" target="_blank" class="button is-primary">
+                                <span class="icon">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </span>
+                                <span>Live Demo</span>
+                            </a>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="column is-one-third">
+                <div class="card">
+                    
+                    <div class="card-image">
+                        <figure class="image is-16by9">
+                            <img src="/assets/images/project2.jpg" alt="Project Title 2">
+                        </figure>
+                    </div>
+                    
+                    <div class="card-content">
+                        <p class="title is-4">Project Title 2</p>
+                        <p class="subtitle is-6">Another project description highlighting key features and accomplishments.</p>
+                        
+                        <div class="content">
+                            <div class="tags">
+                                
+                                <span class="tag">Python</span>
+                                
+                                <span class="tag">Django</span>
+                                
+                                <span class="tag">PostgreSQL</span>
+                                
+                            </div>
+                        </div>
+                        
+                        <div class="buttons">
+                            
+                            <a href="https://github.com/username/project2" target="_blank" class="button is-dark">
+                                <span class="icon">
+                                    <i class="fab fa-github"></i>
+                                </span>
+                                <span>GitHub</span>
+                            </a>
+                            
+                            
+                            <a href="" target="_blank" class="button is-primary">
+                                <span class="icon">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </span>
+                                <span>Live Demo</span>
+                            </a>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="column is-one-third">
+                <div class="card">
+                    
+                    <div class="card-image">
+                        <figure class="image is-16by9">
+                            <img src="/assets/images/project3.jpg" alt="Project Title 3">
+                        </figure>
+                    </div>
+                    
+                    <div class="card-content">
+                        <p class="title is-4">Project Title 3</p>
+                        <p class="subtitle is-6">A third project showcasing different skills and technologies.</p>
+                        
+                        <div class="content">
+                            <div class="tags">
+                                
+                                <span class="tag">Ruby</span>
+                                
+                                <span class="tag">Rails</span>
+                                
+                                <span class="tag">Bootstrap</span>
+                                
+                            </div>
+                        </div>
+                        
+                        <div class="buttons">
+                            
+                            <a href="https://github.com/username/project3" target="_blank" class="button is-dark">
+                                <span class="icon">
+                                    <i class="fab fa-github"></i>
+                                </span>
+                                <span>GitHub</span>
+                            </a>
+                            
+                            
+                            <a href="https://project3-demo.com" target="_blank" class="button is-primary">
+                                <span class="icon">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </span>
+                                <span>Live Demo</span>
+                            </a>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</section>
+
+        </div>
+    </div>
+</section>
+
+    
+    <footer class="footer">
+    <div class="content has-text-centered">
+        <p>
+            <strong>Alexander Taffe</strong> - Personal Website
+        </p>
+        <p>
+            
+            <a href="mailto:taffealexander@gmail.com">taffealexander@gmail.com</a>
+            
+        </p>
+        <p>
+            
+        </p>
+    </div>
+</footer>
+
+</body>
+</html>

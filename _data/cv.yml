@@ -1,0 +1,59 @@
+personal_info:
+  name: "Alexander Taffe"
+  email: "taffealexander@gmail.com"
+  location: "Your Location"
+  phone: ""
+  website: ""
+  linkedin: ""
+  github: ""
+
+summary: |
+  A passionate developer with experience in building web applications and software solutions.
+  Always eager to learn new technologies and tackle challenging problems.
+
+education:
+  - degree: "Your Degree"
+    institution: "Your University"
+    location: "City, Country"
+    year: "YYYY"
+    description: "Relevant coursework or achievements"
+
+experience:
+  - title: "Your Job Title"
+    company: "Company Name"
+    location: "City, Country"
+    start_date: "MM/YYYY"
+    end_date: "Present"
+    description: |
+      - Accomplishment or responsibility
+      - Another accomplishment or responsibility
+      - Key achievement
+
+skills:
+  languages:
+    - "JavaScript"
+    - "Python"
+    - "HTML/CSS"
+    - "Ruby"
+  
+  frameworks:
+    - "React"
+    - "Jekyll"
+    - "Bulma"
+  
+  tools:
+    - "Git"
+    - "VS Code"
+    - "Docker"
+
+certifications:
+  - name: "Certification Name"
+    issuer: "Issuing Organization"
+    date: "YYYY"
+    credential_id: ""
+
+languages:
+  - name: "English"
+    proficiency: "Native"
+  - name: "Another Language"
+    proficiency: "Fluent"

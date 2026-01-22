@@ -1,0 +1,85 @@
+/* Custom styles for the personal website */
+
+/* Hero section adjustments */
+.hero.is-primary {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+/* Card hover effects */
+.card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Section spacing */
+.section {
+    padding: 3rem 1.5rem;
+}
+
+/* Box styling */
+.box {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.box .content {
+    flex-grow: 1;
+}
+
+/* Tag styling */
+.tags {
+    margin-top: 0.5rem;
+}
+
+/* Button spacing */
+.buttons {
+    margin-top: 1rem;
+}
+
+/* Footer styling */
+.footer {
+    background-color: #363636;
+    color: #fff;
+}
+
+.footer a {
+    color: #fff;
+}
+
+.footer a:hover {
+    color: #3273dc;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+    .hero-body {
+        padding: 2rem 1.5rem;
+    }
+    
+    .title.is-1 {
+        font-size: 2rem;
+    }
+    
+    .subtitle.is-4 {
+        font-size: 1.25rem;
+    }
+}
+
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Custom spacing utilities */
+.mt-3 {
+    margin-top: 1rem;
+}
+
+.mt-5 {
+    margin-top: 2rem;
+}

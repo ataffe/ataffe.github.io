@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About | Alexander Taffe</title>
+    <meta name="description" content="Personal website and portfolio of Alexander Taffe. Showcasing projects, CV, and professional experience.">
+    
+    <!-- Bulma CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+</head>
+<body>
+    <nav class="navbar is-dark" role="navigation" aria-label="main navigation">
+    <div class="container">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="/">
+                <strong>Alexander Taffe</strong>
+            </a>
+            
+            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
+        </div>
+        
+        <div id="navbarBasicExample" class="navbar-menu">
+            <div class="navbar-start">
+                <a class="navbar-item" href="/">
+                    Home
+                </a>
+                <a class="navbar-item" href="/cv">
+                    CV
+                </a>
+                <a class="navbar-item" href="/projects">
+                    Projects
+                </a>
+                <a class="navbar-item" href="/about">
+                    About
+                </a>
+            </div>
+            
+            <div class="navbar-end">
+                
+                
+                <a class="navbar-item" href="mailto:taffealexander@gmail.com">
+                    <span class="icon">
+                        <i class="fas fa-envelope"></i>
+                    </span>
+                </a>
+                
+            </div>
+        </div>
+    </div>
+</nav>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+    
+    if ($navbarBurgers.length > 0) {
+        $navbarBurgers.forEach(el => {
+            el.addEventListener('click', () => {
+                const target = el.dataset.target;
+                const $target = document.getElementById(target);
+                
+                el.classList.toggle('is-active');
+                $target.classList.toggle('is-active');
+            });
+        });
+    }
+});
+</script>
+
+    
+    <section class="section">
+    <div class="container">
+        <div class="content">
+            <h1 class="title is-1">About</h1>
+            <div class="content">
+    <p>Welcome to my personal website! I'm Alexander Taffe, a developer passionate about creating innovative solutions and building meaningful projects.</p>
+    
+    <h2 class="title is-3">Who I Am</h2>
+    <p>I'm a software developer with a passion for web development, problem-solving, and continuous learning. I enjoy working on projects that make a difference and help solve real-world problems.</p>
+    
+    <h2 class="title is-3">What I Do</h2>
+    <p>I specialize in building web applications using modern technologies and best practices. My work focuses on creating user-friendly, efficient, and scalable solutions.</p>
+    
+    <h2 class="title is-3">Get In Touch</h2>
+    <p>Feel free to reach out if you'd like to collaborate, have questions, or just want to connect!</p>
+    <p>
+        <a href="mailto:taffealexander@gmail.com" class="button is-primary">
+            <span class="icon">
+                <i class="fas fa-envelope"></i>
+            </span>
+            <span>Contact Me</span>
+        </a>
+    </p>
+</div>
+
+        </div>
+    </div>
+</section>
+
+    
+    <footer class="footer">
+    <div class="content has-text-centered">
+        <p>
+            <strong>Alexander Taffe</strong> - Personal Website
+        </p>
+        <p>
+            
+            <a href="mailto:taffealexander@gmail.com">taffealexander@gmail.com</a>
+            
+        </p>
+        <p>
+            
+        </p>
+    </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV | Alexander Taffe</title>
+    <meta name="description" content="Personal website and portfolio of Alexander Taffe. Showcasing projects, CV, and professional experience.">
+    
+    <!-- Bulma CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+</head>
+<body>
+    <nav class="navbar is-dark" role="navigation" aria-label="main navigation">
+    <div class="container">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="/">
+                <strong>Alexander Taffe</strong>
+            </a>
+            
+            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
+        </div>
+        
+        <div id="navbarBasicExample" class="navbar-menu">
+            <div class="navbar-start">
+                <a class="navbar-item" href="/">
+                    Home
+                </a>
+                <a class="navbar-item" href="/cv">
+                    CV
+                </a>
+                <a class="navbar-item" href="/projects">
+                    Projects
+                </a>
+                <a class="navbar-item" href="/about">
+                    About
+                </a>
+            </div>
+            
+            <div class="navbar-end">
+                
+                
+                <a class="navbar-item" href="mailto:taffealexander@gmail.com">
+                    <span class="icon">
+                        <i class="fas fa-envelope"></i>
+                    </span>
+                </a>
+                
+            </div>
+        </div>
+    </div>
+</nav>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+    
+    if ($navbarBurgers.length > 0) {
+        $navbarBurgers.forEach(el => {
+            el.addEventListener('click', () => {
+                const target = el.dataset.target;
+                const $target = document.getElementById(target);
+                
+                el.classList.toggle('is-active');
+                $target.classList.toggle('is-active');
+            });
+        });
+    }
+});
+</script>
+
+    
+    <section class="section">
+    <div class="container">
+        <div class="content">
+            <h1 class="title is-1">CV</h1>
+            
+
+<div class="columns">
+    <div class="column is-three-quarters">
+        <!-- Personal Information -->
+        <section class="section">
+            <h2 class="title is-2">Personal Information</h2>
+            <div class="content">
+                <p><strong>Name:</strong> Alexander Taffe</p>
+                <p><strong>Email:</strong> <a href="mailto:taffealexander@gmail.com">taffealexander@gmail.com</a></p>
+                
+                <p><strong>Location:</strong> Your Location</p>
+                
+                
+                <p><strong>Phone:</strong> </p>
+                
+                
+                <p><strong>GitHub:</strong> <a href="https://github.com/" target="_blank"></a></p>
+                
+                
+                <p><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/" target="_blank"></a></p>
+                
+            </div>
+        </section>
+
+        <!-- Summary -->
+        
+        <section class="section">
+            <h2 class="title is-2">Summary</h2>
+            <div class="content">
+                <p>A passionate developer with experience in building web applications and software solutions.
+Always eager to learn new technologies and tackle challenging problems.</p>
+
+            </div>
+        </section>
+        
+
+        <!-- Experience -->
+        
+        <section class="section">
+            <h2 class="title is-2">Experience</h2>
+            
+            <div class="box">
+                <h3 class="title is-4">Your Job Title</h3>
+                <h4 class="subtitle is-5">Company Name - City, Country</h4>
+                <p class="has-text-grey">MM/YYYY - Present</p>
+                <div class="content">
+                    <ul>
+  <li>Accomplishment or responsibility</li>
+  <li>Another accomplishment or responsibility</li>
+  <li>Key achievement</li>
+</ul>
+
+                </div>
+            </div>
+            
+        </section>
+        
+
+        <!-- Education -->
+        
+        <section class="section">
+            <h2 class="title is-2">Education</h2>
+            
+            <div class="box">
+                <h3 class="title is-4">Your Degree</h3>
+                <h4 class="subtitle is-5">Your University - City, Country</h4>
+                <p class="has-text-grey">YYYY</p>
+                
+                <div class="content">
+                    <p>Relevant coursework or achievements</p>
+
+                </div>
+                
+            </div>
+            
+        </section>
+        
+
+        <!-- Certifications -->
+        
+        <section class="section">
+            <h2 class="title is-2">Certifications</h2>
+            
+            <div class="box">
+                <h3 class="title is-5">Certification Name</h3>
+                <p><strong>Issuer:</strong> Issuing Organization</p>
+                <p><strong>Date:</strong> YYYY</p>
+                
+                <p><strong>Credential ID:</strong> </p>
+                
+            </div>
+            
+        </section>
+        
+    </div>
+
+    <div class="column">
+        <!-- Skills -->
+        
+        <section class="section">
+            <h2 class="title is-3">Skills</h2>
+            
+            
+            <div class="content">
+                <h4 class="title is-5">Languages</h4>
+                <div class="tags">
+                    
+                    <span class="tag is-primary">JavaScript</span>
+                    
+                    <span class="tag is-primary">Python</span>
+                    
+                    <span class="tag is-primary">HTML/CSS</span>
+                    
+                    <span class="tag is-primary">Ruby</span>
+                    
+                </div>
+            </div>
+            
+
+            
+            <div class="content">
+                <h4 class="title is-5">Frameworks & Libraries</h4>
+                <div class="tags">
+                    
+                    <span class="tag is-info">React</span>
+                    
+                    <span class="tag is-info">Jekyll</span>
+                    
+                    <span class="tag is-info">Bulma</span>
+                    
+                </div>
+            </div>
+            
+
+            
+            <div class="content">
+                <h4 class="title is-5">Tools & Technologies</h4>
+                <div class="tags">
+                    
+                    <span class="tag is-success">Git</span>
+                    
+                    <span class="tag is-success">VS Code</span>
+                    
+                    <span class="tag is-success">Docker</span>
+                    
+                </div>
+            </div>
+            
+        </section>
+        
+
+        <!-- Languages -->
+        
+        <section class="section">
+            <h2 class="title is-3">Languages</h2>
+            <div class="content">
+                
+                <p><strong>English:</strong> Native</p>
+                
+                <p><strong>Another Language:</strong> Fluent</p>
+                
+            </div>
+        </section>
+        
+    </div>
+</div>
+
+        </div>
+    </div>
+</section>
+
+    
+    <footer class="footer">
+    <div class="content has-text-centered">
+        <p>
+            <strong>Alexander Taffe</strong> - Personal Website
+        </p>
+        <p>
+            
+            <a href="mailto:taffealexander@gmail.com">taffealexander@gmail.com</a>
+            
+        </p>
+        <p>
+            
+        </p>
+    </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,61 @@
+---
+layout: page
+title: Projects
+permalink: /projects/
+---
+
+{% assign projects = site.data.projects %}
+
+<section class="section">
+    <div class="container">
+        <h1 class="title is-1">My Projects</h1>
+        <p class="subtitle is-4">A collection of projects I've built and worked on</p>
+        
+        <div class="columns is-multiline">
+            {% for project in projects %}
+            <div class="column is-one-third">
+                <div class="card">
+                    {% if project.image %}
+                    <div class="card-image">
+                        <figure class="image is-16by9">
+                            <img src="{{ project.image | relative_url }}" alt="{{ project.title }}">
+                        </figure>
+                    </div>
+                    {% endif %}
+                    <div class="card-content">
+                        <p class="title is-4">{{ project.title }}</p>
+                        <p class="subtitle is-6">{{ project.description }}</p>
+                        
+                        <div class="content">
+                            <div class="tags">
+                                {% for tech in project.technologies %}
+                                <span class="tag">{{ tech }}</span>
+                                {% endfor %}
+                            </div>
+                        </div>
+                        
+                        <div class="buttons">
+                            {% if project.github_url %}
+                            <a href="{{ project.github_url }}" target="_blank" class="button is-dark">
+                                <span class="icon">
+                                    <i class="fab fa-github"></i>
+                                </span>
+                                <span>GitHub</span>
+                            </a>
+                            {% endif %}
+                            {% if project.live_url %}
+                            <a href="{{ project.live_url }}" target="_blank" class="button is-primary">
+                                <span class="icon">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </span>
+                                <span>Live Demo</span>
+                            </a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>

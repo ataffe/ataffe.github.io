@@ -1,0 +1,67 @@
+<nav class="navbar is-dark" role="navigation" aria-label="main navigation">
+    <div class="container">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="{{ '/' | relative_url }}">
+                <strong>{{ site.title }}</strong>
+            </a>
+            
+            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
+        </div>
+        
+        <div id="navbarBasicExample" class="navbar-menu">
+            <div class="navbar-start">
+                <a class="navbar-item" href="{{ '/' | relative_url }}">
+                    Home
+                </a>
+                <a class="navbar-item" href="{{ '/cv' | relative_url }}">
+                    CV
+                </a>
+                <a class="navbar-item" href="{{ '/projects' | relative_url }}">
+                    Projects
+                </a>
+                <a class="navbar-item" href="{{ '/about' | relative_url }}">
+                    About
+                </a>
+            </div>
+            
+            <div class="navbar-end">
+                {% if site.github_username %}
+                <a class="navbar-item" href="https://github.com/{{ site.github_username }}" target="_blank">
+                    <span class="icon">
+                        <i class="fab fa-github"></i>
+                    </span>
+                </a>
+                {% endif %}
+                {% if site.email %}
+                <a class="navbar-item" href="mailto:{{ site.email }}">
+                    <span class="icon">
+                        <i class="fas fa-envelope"></i>
+                    </span>
+                </a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</nav>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+    
+    if ($navbarBurgers.length > 0) {
+        $navbarBurgers.forEach(el => {
+            el.addEventListener('click', () => {
+                const target = el.dataset.target;
+                const $target = document.getElementById(target);
+                
+                el.classList.toggle('is-active');
+                $target.classList.toggle('is-active');
+            });
+        });
+    }
+});
+</script>
