@@ -1,56 +1,121 @@
 personal_info:
   name: "Alexander Taffe"
   email: "taffealexander@gmail.com"
-  location: "Your Location"
-  phone: ""
-  website: ""
-  linkedin: ""
-  github: ""
+  location: "Sacramento, California, USA"
+  phone: "+1 (602) 575 - 6099"
+  linkedin: "https://www.linkedin.com/in/alexander-taffe"
+  github: "https://github.com/ataffe"
 
 summary: |
-  A passionate developer with experience in building web applications and software solutions.
+  A passionate developer with experience in building backend web services and computer vision systems.
   Always eager to learn new technologies and tackle challenging problems.
 
 education:
-  - degree: "Your Degree"
-    institution: "Your University"
-    location: "City, Country"
-    year: "YYYY"
-    description: "Relevant coursework or achievements"
+  - degree: "Master of Science in Computer Science"
+    institution: "University of California, Davis"
+    location: "Davis, California"
+    year: "2020"
+    description: "Revelant coursework: Computer Vision, Machine Learning & Discovery, Vision Language Models, AI and the Human Alignment Problem."
+  
+  - degree: "Bachelor of Science in Engineering in Computer Systems Engineering"
+    institution: "Arizona State University"
+    location: "Tempe, Arizona"
+    year: "2018"
+    description: "Relevant coursework: Data Structures and Algorithms, Distributed Software Development, Software Engineering."
 
 experience:
-  - title: "Your Job Title"
-    company: "Company Name"
-    location: "City, Country"
-    start_date: "MM/YYYY"
-    end_date: "Present"
+  - title: "Graduate Research Assistant (Marcu Lab)"
+    company: "The University of California, Davis"
+    location: "Davis, California"
+    start_date: "02/2024"
+    end_date: "08/2025"
     description: |
-      - Accomplishment or responsibility
-      - Another accomplishment or responsibility
-      - Key achievement
+      - Evaluated supervised point tracking models (Co-Tracker, TAPIR) for motion correction contributing to the related work section of the paper for this project.
+      - Created a quantitative and a qualitative dataset of surgical videos for benchmarking motion correction performance.
+      - Converted YOLO based aiming beam detection, and Superpoint based motion correction algorithm from Python to C++ for real-time performance benchmarking.
+      - Wrote a Medium article detailing the process of porting Python to C++ using ONNX Runtime.
+  - title: "Software Development Engineer Intern"
+    company: "Amazon Web Services"
+    location: "Cupertino, California"
+    start_date: "06/2024"
+    end_date: "09/2024"
+    description: |
+      - Enabled hardware engineers to perform granular power data analysis for regulatory compliance, performance monitoring, and debugging across AWS servers by building a serverless time-series data collection REST API for server power data using Python, AWS Lambda SQS, and DynamoDB.
+  - title: "Teaching Assistant - Introduction to programming with Python"
+    company: "The University of California, Davis"
+    location: "Davis, California"
+    start_date: "09/2023"
+    end_date: "06/2024"
+    description: |
+      - Taught discussion once a week to a class of 30 students.
+      - Hosted in-person and remote office hours 3 times a week.
+      - Led bi-weekly 2 hour “stay late and code” homework session with tutors and students.
+      - Collaborated with 2 other TAs to grade assignments and exams for 200+ students.
+  - title: "Software Engineer II"
+    company: "Axon Enterprise"
+    location: "Remote - San Francisco, California"
+    start_date: "06/2022"
+    end_date: "09/2023"
+    description: |
+      - Streamlined the workflow for 11,000 users in police departments and courts across the U.S. by enabling Axon Records users to save and search for warrants and bookings using Go, gRPC and TypeScript.
+      - Improved the scalability of the records team's search pipeline by designing and implementing a reference-based messaging approach for Kafka, enabling the search pipeline to index large payloads.
+      - Ensured records search operated 24/7 by participating in on-call rotations and debugging alerts using observability tools like Prometheus, Grafana, and Splunk.
+  - title: "Software Engineer II"
+    company: "PayPal"
+    location: "San Jose, California"
+    start_date: "11/2020"
+    end_date: "06/2022"
+    description: |
+      - Enabled contactless payments at gas pumps for PayPal's 400 million customers via the PayPal app by building microservices hosting GraphQL APIs, such as store search using Java and Spring Boot.
+      - Improved the UX for PayPal users by improving the resiliency of the QR code teams API gateway using session polling, which enabled the gateway to handle latency in downstream API calls gracefully.
+  - title: "Software Engineer II"
+    company: "American Express"
+    location: "Phoenix, Arizona"
+    start_date: "12/2018"
+    end_date: "11/2020"
+    description: |
+      - Improved UX for ~140 million card members by integrating the Groupon offers with the Amex registered card system via a RESTful API designed to ingest service establishment locations using Java and Spring.
+      - Reduced remediation memo posting time by 93% by building a microservice using Golang and Postgres.
+  - title: "Software Engineer I"
+    company: "Astronautics Corporation of America"
+    location: "Phoenix, Arizona"
+    start_date: "06/2016"
+    end_date: "12/2018"
+    description: |
+      - Modernized C++ unit tests for the company's electronic flight instrument driver libraries, enhancing the
 
 skills:
   languages:
-    - "JavaScript"
     - "Python"
-    - "HTML/CSS"
-    - "Ruby"
+    - "Golang"
+    - "Java"
+    - "C++"
   
   frameworks:
+    - "OpenCV"
+    - "PyTorch"
+    - "Numpy"
+    - "Gin"
     - "React"
-    - "Jekyll"
-    - "Bulma"
+    - "Spring Boot"
+  
+  databases:
+    - "PostgreSQL"
+    - "MySQL"
+    - "DynamoDB"
+    - "AWS S3"
+  
+  cloud_frameworks:
+    - "AWS"
   
   tools:
     - "Git"
-    - "VS Code"
+    - "Splunk"
+    - "ArgoCD"
+    - "Jenkins"
+    - "Grafana"
     - "Docker"
-
-certifications:
-  - name: "Certification Name"
-    issuer: "Issuing Organization"
-    date: "YYYY"
-    credential_id: ""
+    - "Kubernetes"
 
 languages:
   - name: "English"

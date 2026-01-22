@@ -129,12 +129,16 @@ document.addEventListener('DOMContentLoaded', () => {
                         About Me
                     </h2>
                     <div class="content">
-                        <p>Welcome to my personal website! I'm a developer passionate about designing and building, robust, scalable, maintainable backend web services and computer vision based systems.</p>
-                        <a href="/about" class="button is-primary">Learn More</a>
+                        <p>Welcome to my personal website! I'm a software engineer passionate about designing and building, robust, scalable, maintainable backend web services and computer vision based systems.</p>
+                        <div class="level">
+                            <div class="level-item">
+                                <a href="/about" class="button is-primary">Learn More</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-            
+            <!--Experience Column-->
             <div class="column">
                 <div class="box">
                     <h2 class="title is-3">
@@ -143,31 +147,34 @@ document.addEventListener('DOMContentLoaded', () => {
                         </span>
                         Experience
                     </h2>
-                    
                     <div class="content">
-                        <p>I have 5 years of experience working at companies like PayPal and Axon. See my CV for more details. </p>
+                        <p>I have 5 years of experience working as a backend engineer at companies like PayPal, Axon and AWS. See my CV for more details. </p>
                         <div class="level">
-                                <div class="level-item">
-                                    <figure class="image is-64x64">
-                                        <img src="assets/images/paypal-logo.svg" alt="PayPal Logo">
-                                    </figure>
-                                </div>
-                                <div class="level-item">
-                                    <figure class="image is-64x64">
-                                        <img src="assets/images/aws-logo.svg" alt="AWS logo">
-                                    </figure>
-                                </div>
-                                <div class="level-item">
-                                    <figure class="image is-64x64">
-                                        <img src="assets/images/axon-logo.svg" alt="Axon logo">
-                                    </figure>
-                                </div>
+                            <div class="level-item">
+                                <a href="/cv" class="button is-primary">View CV</a>
+                            </div>
                         </div>
-                        <a href="/cv" class="button is-primary">View CV</a>
+                        <div class="level">
+                            <div class="level-item">
+                                <figure class="image is-64x64 is-flex is-align-items-center">
+                                    <img src="assets/images/paypal-logo.svg" alt="PayPal Logo">
+                                </figure>
+                            </div>
+                            <div class="level-item">
+                                <figure class="image is-64x64 is-flex is-align-items-center">
+                                    <img src="assets/images/aws-logo.svg" alt="AWS logo">
+                                </figure>
+                            </div>
+                            <div class="level-item">
+                                <figure class="image is-64x64 is-flex is-align-items-center">
+                                    <img src="assets/images/axon-logo.svg" alt="Axon logo">
+                                </figure>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-            
+            <!--Projects Column-->
             <div class="column">
                 <div class="box">
                     <h2 class="title is-3">
@@ -177,8 +184,12 @@ document.addEventListener('DOMContentLoaded', () => {
                         Projects
                     </h2>
                     <div class="content">
-                        <p>From backend systems for millions of customers to computer vision systems for healthcare research. Explore some of the projects I've built.</p>
-                        <a href="/projects" class="button is-primary">View Projects</a>
+                        <p>From personal projects to computer vision systems for healthcare research at UC Davis. Explore some of the projects I've built.</p>
+                        <div class="level">
+                            <div class="level-item">
+                                <a href="/projects" class="button is-primary">View Projects</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -187,104 +198,6 @@ document.addEventListener('DOMContentLoaded', () => {
 </section>
 
 
-
-<section class="section">
-    <div class="container">
-        <h2 class="title is-2">Featured Projects</h2>
-        <div class="columns is-multiline">
-            
-            <div class="column is-one-third">
-                <div class="card">
-                    
-                    <div class="card-image">
-                        <figure class="image is-16by9">
-                            <img src="/assets/images/project1.jpg" alt="Project Title 1">
-                        </figure>
-                    </div>
-                    
-                    <div class="card-content">
-                        <p class="title is-5">Project Title 1</p>
-                        <p class="subtitle is-6">A brief description of what this project does and what technologies it uses.</p>
-                        <div class="tags">
-                            
-                            <span class="tag">JavaScript</span>
-                            
-                            <span class="tag">React</span>
-                            
-                            <span class="tag">Node.js</span>
-                            
-                        </div>
-                        <div class="buttons mt-3">
-                            
-                            <a href="https://github.com/username/project1" target="_blank" class="button is-small is-dark">
-                                <span class="icon">
-                                    <i class="fab fa-github"></i>
-                                </span>
-                                <span>GitHub</span>
-                            </a>
-                            
-                            
-                            <a href="https://project1-demo.com" target="_blank" class="button is-small is-primary">
-                                <span class="icon">
-                                    <i class="fas fa-external-link-alt"></i>
-                                </span>
-                                <span>Demo</span>
-                            </a>
-                            
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="column is-one-third">
-                <div class="card">
-                    
-                    <div class="card-image">
-                        <figure class="image is-16by9">
-                            <img src="/assets/images/project2.jpg" alt="Project Title 2">
-                        </figure>
-                    </div>
-                    
-                    <div class="card-content">
-                        <p class="title is-5">Project Title 2</p>
-                        <p class="subtitle is-6">Another project description highlighting key features and accomplishments.</p>
-                        <div class="tags">
-                            
-                            <span class="tag">Python</span>
-                            
-                            <span class="tag">Django</span>
-                            
-                            <span class="tag">PostgreSQL</span>
-                            
-                        </div>
-                        <div class="buttons mt-3">
-                            
-                            <a href="https://github.com/username/project2" target="_blank" class="button is-small is-dark">
-                                <span class="icon">
-                                    <i class="fab fa-github"></i>
-                                </span>
-                                <span>GitHub</span>
-                            </a>
-                            
-                            
-                            <a href="" target="_blank" class="button is-small is-primary">
-                                <span class="icon">
-                                    <i class="fas fa-external-link-alt"></i>
-                                </span>
-                                <span>Demo</span>
-                            </a>
-                            
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-        </div>
-        <div class="has-text-centered mt-5">
-            <a href="/projects" class="button is-primary is-medium">View All Projects</a>
-        </div>
-    </div>
-</section>
 
 
 

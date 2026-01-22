@@ -90,22 +90,50 @@ document.addEventListener('DOMContentLoaded', () => {
         <!-- Personal Information -->
         <section class="section">
             <h2 class="title is-2">Personal Information</h2>
-            <div class="content">
-                <p><strong>Name:</strong> Alexander Taffe</p>
-                <p><strong>Email:</strong> <a href="mailto:taffealexander@gmail.com">taffealexander@gmail.com</a></p>
-                
-                <p><strong>Location:</strong> Your Location</p>
-                
-                
-                <p><strong>Phone:</strong> </p>
-                
-                
-                <p><strong>GitHub:</strong> <a href="https://github.com/" target="_blank"></a></p>
-                
-                
-                <p><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/" target="_blank"></a></p>
-                
+            <div class="columns">
+                <div class="column">
+                    <div class="content">
+                        <p><strong>Name:</strong> Alexander Taffe</p>
+                        <p><strong>Email:</strong> <a href="mailto:taffealexander@gmail.com">taffealexander@gmail.com</a></p>
+                        
+                        <p><strong>Location:</strong> Sacramento, California, USA</p>
+                        
+                        
+                        <p><strong>Phone:</strong> +1 (602) 575 - 6099</p>
+                        
+                        <div class="level">
+                            
+                            <div class="level-item">
+                                    <a href=https://github.com/ataffe target="_blank">
+                                        <figure class="image is-64x64 is-flex is-align-items-center">
+                                            <img src="../assets/images/github-logo.svg">
+                                        </figure>
+                                    </a>
+                            </div>
+                            
+                            
+                            <div class="level-item">
+                                    <a href=https://www.linkedin.com/in/alexander-taffe target="_blank">
+                                        <figure class="image is-128x128 is-flex is-align-items-center">
+                                            <img src="../assets/images/linkedin-logo.png">
+                                        </figure>
+                                    </a>
+                            </div>
+                            
+
+                            
+
+                        </div> 
+                    </div>
+                </div>
+                <div class="column">
+                    <figure class="image">
+                        <img class="is-rounded" src="../assets/images/selfie.jpg" alt="Profile Picture">
+                    </figure>
+                </div>
             </div>
+            
+            
         </section>
 
         <!-- Summary -->
@@ -113,7 +141,7 @@ document.addEventListener('DOMContentLoaded', () => {
         <section class="section">
             <h2 class="title is-2">Summary</h2>
             <div class="content">
-                <p>A passionate developer with experience in building web applications and software solutions.
+                <p>A passionate developer with experience in building backend web services and computer vision systems.
 Always eager to learn new technologies and tackle challenging problems.</p>
 
             </div>
@@ -126,14 +154,94 @@ Always eager to learn new technologies and tackle challenging problems.</p>
             <h2 class="title is-2">Experience</h2>
             
             <div class="box">
-                <h3 class="title is-4">Your Job Title</h3>
-                <h4 class="subtitle is-5">Company Name - City, Country</h4>
-                <p class="has-text-grey">MM/YYYY - Present</p>
+                <h3 class="title is-4">Graduate Research Assistant (Marcu Lab)</h3>
+                <h4 class="subtitle is-5">The University of California, Davis - Davis, California</h4>
+                <p class="has-text-grey">02/2024 - 08/2025</p>
                 <div class="content">
                     <ul>
-  <li>Accomplishment or responsibility</li>
-  <li>Another accomplishment or responsibility</li>
-  <li>Key achievement</li>
+  <li>Evaluated supervised point tracking models (Co-Tracker, TAPIR) for motion correction contributing to the related work section of the paper for this project.</li>
+  <li>Created a quantitative and a qualitative dataset of surgical videos for benchmarking motion correction performance.</li>
+  <li>Converted YOLO based aiming beam detection, and Superpoint based motion correction algorithm from Python to C++ for real-time performance benchmarking.</li>
+  <li>Wrote a Medium article detailing the process of porting Python to C++ using ONNX Runtime.</li>
+</ul>
+
+                </div>
+            </div>
+            
+            <div class="box">
+                <h3 class="title is-4">Software Development Engineer Intern</h3>
+                <h4 class="subtitle is-5">Amazon Web Services - Cupertino, California</h4>
+                <p class="has-text-grey">06/2024 - 09/2024</p>
+                <div class="content">
+                    <ul>
+  <li>Enabled hardware engineers to perform granular power data analysis for regulatory compliance, performance monitoring, and debugging across AWS servers by building a serverless time-series data collection REST API for server power data using Python, AWS Lambda SQS, and DynamoDB.</li>
+</ul>
+
+                </div>
+            </div>
+            
+            <div class="box">
+                <h3 class="title is-4">Teaching Assistant - Introduction to programming with Python</h3>
+                <h4 class="subtitle is-5">The University of California, Davis - Davis, California</h4>
+                <p class="has-text-grey">09/2023 - 06/2024</p>
+                <div class="content">
+                    <ul>
+  <li>Taught discussion once a week to a class of 30 students.</li>
+  <li>Hosted in-person and remote office hours 3 times a week.</li>
+  <li>Led bi-weekly 2 hour “stay late and code” homework session with tutors and students.</li>
+  <li>Collaborated with 2 other TAs to grade assignments and exams for 200+ students.</li>
+</ul>
+
+                </div>
+            </div>
+            
+            <div class="box">
+                <h3 class="title is-4">Software Engineer II</h3>
+                <h4 class="subtitle is-5">Axon Enterprise - Remote - San Francisco, California</h4>
+                <p class="has-text-grey">06/2022 - 09/2023</p>
+                <div class="content">
+                    <ul>
+  <li>Streamlined the workflow for 11,000 users in police departments and courts across the U.S. by enabling Axon Records users to save and search for warrants and bookings using Go, gRPC and TypeScript.</li>
+  <li>Improved the scalability of the records team’s search pipeline by designing and implementing a reference-based messaging approach for Kafka, enabling the search pipeline to index large payloads.</li>
+  <li>Ensured records search operated 24/7 by participating in on-call rotations and debugging alerts using observability tools like Prometheus, Grafana, and Splunk.</li>
+</ul>
+
+                </div>
+            </div>
+            
+            <div class="box">
+                <h3 class="title is-4">Software Engineer II</h3>
+                <h4 class="subtitle is-5">PayPal - San Jose, California</h4>
+                <p class="has-text-grey">11/2020 - 06/2022</p>
+                <div class="content">
+                    <ul>
+  <li>Enabled contactless payments at gas pumps for PayPal’s 400 million customers via the PayPal app by building microservices hosting GraphQL APIs, such as store search using Java and Spring Boot.</li>
+  <li>Improved the UX for PayPal users by improving the resiliency of the QR code teams API gateway using session polling, which enabled the gateway to handle latency in downstream API calls gracefully.</li>
+</ul>
+
+                </div>
+            </div>
+            
+            <div class="box">
+                <h3 class="title is-4">Software Engineer II</h3>
+                <h4 class="subtitle is-5">American Express - Phoenix, Arizona</h4>
+                <p class="has-text-grey">12/2018 - 11/2020</p>
+                <div class="content">
+                    <ul>
+  <li>Improved UX for ~140 million card members by integrating the Groupon offers with the Amex registered card system via a RESTful API designed to ingest service establishment locations using Java and Spring.</li>
+  <li>Reduced remediation memo posting time by 93% by building a microservice using Golang and Postgres.</li>
+</ul>
+
+                </div>
+            </div>
+            
+            <div class="box">
+                <h3 class="title is-4">Software Engineer I</h3>
+                <h4 class="subtitle is-5">Astronautics Corporation of America - Phoenix, Arizona</h4>
+                <p class="has-text-grey">06/2016 - 12/2018</p>
+                <div class="content">
+                    <ul>
+  <li>Modernized C++ unit tests for the company’s electronic flight instrument driver libraries, enhancing the</li>
 </ul>
 
                 </div>
@@ -148,12 +256,24 @@ Always eager to learn new technologies and tackle challenging problems.</p>
             <h2 class="title is-2">Education</h2>
             
             <div class="box">
-                <h3 class="title is-4">Your Degree</h3>
-                <h4 class="subtitle is-5">Your University - City, Country</h4>
-                <p class="has-text-grey">YYYY</p>
+                <h3 class="title is-4">Master of Science in Computer Science</h3>
+                <h4 class="subtitle is-5">University of California, Davis - Davis, California</h4>
+                <p class="has-text-grey">2020</p>
                 
                 <div class="content">
-                    <p>Relevant coursework or achievements</p>
+                    <p>Revelant coursework: Computer Vision, Machine Learning &amp; Discovery, Vision Language Models, AI and the Human Alignment Problem.</p>
+
+                </div>
+                
+            </div>
+            
+            <div class="box">
+                <h3 class="title is-4">Bachelor of Science in Engineering in Computer Systems Engineering</h3>
+                <h4 class="subtitle is-5">Arizona State University - Tempe, Arizona</h4>
+                <p class="has-text-grey">2018</p>
+                
+                <div class="content">
+                    <p>Relevant coursework: Data Structures and Algorithms, Distributed Software Development, Software Engineering.</p>
 
                 </div>
                 
@@ -163,20 +283,6 @@ Always eager to learn new technologies and tackle challenging problems.</p>
         
 
         <!-- Certifications -->
-        
-        <section class="section">
-            <h2 class="title is-2">Certifications</h2>
-            
-            <div class="box">
-                <h3 class="title is-5">Certification Name</h3>
-                <p><strong>Issuer:</strong> Issuing Organization</p>
-                <p><strong>Date:</strong> YYYY</p>
-                
-                <p><strong>Credential ID:</strong> </p>
-                
-            </div>
-            
-        </section>
         
     </div>
 
@@ -191,13 +297,41 @@ Always eager to learn new technologies and tackle challenging problems.</p>
                 <h4 class="title is-5">Languages</h4>
                 <div class="tags">
                     
-                    <span class="tag is-primary">JavaScript</span>
-                    
                     <span class="tag is-primary">Python</span>
                     
-                    <span class="tag is-primary">HTML/CSS</span>
+                    <span class="tag is-primary">Golang</span>
                     
-                    <span class="tag is-primary">Ruby</span>
+                    <span class="tag is-primary">Java</span>
+                    
+                    <span class="tag is-primary">C++</span>
+                    
+                </div>
+            </div>
+            
+
+            
+            <div class="content">
+                <h4 class="title is-5">Databases</h4>
+                <div class="tags">
+                    
+                    <span class="tag is-warning">PostgreSQL</span>
+                    
+                    <span class="tag is-warning">MySQL</span>
+                    
+                    <span class="tag is-warning">DynamoDB</span>
+                    
+                    <span class="tag is-warning">AWS S3</span>
+                    
+                </div>
+            </div>
+            
+
+            
+            <div class="content">
+                <h4 class="title is-5">Cloud Frameworks</h4>
+                <div class="tags">
+                    
+                    <span class="tag is-danger">AWS</span>
                     
                 </div>
             </div>
@@ -208,11 +342,17 @@ Always eager to learn new technologies and tackle challenging problems.</p>
                 <h4 class="title is-5">Frameworks & Libraries</h4>
                 <div class="tags">
                     
+                    <span class="tag is-info">OpenCV</span>
+                    
+                    <span class="tag is-info">PyTorch</span>
+                    
+                    <span class="tag is-info">Numpy</span>
+                    
+                    <span class="tag is-info">Gin</span>
+                    
                     <span class="tag is-info">React</span>
                     
-                    <span class="tag is-info">Jekyll</span>
-                    
-                    <span class="tag is-info">Bulma</span>
+                    <span class="tag is-info">Spring Boot</span>
                     
                 </div>
             </div>
@@ -225,9 +365,17 @@ Always eager to learn new technologies and tackle challenging problems.</p>
                     
                     <span class="tag is-success">Git</span>
                     
-                    <span class="tag is-success">VS Code</span>
+                    <span class="tag is-success">Splunk</span>
+                    
+                    <span class="tag is-success">ArgoCD</span>
+                    
+                    <span class="tag is-success">Jenkins</span>
+                    
+                    <span class="tag is-success">Grafana</span>
                     
                     <span class="tag is-success">Docker</span>
+                    
+                    <span class="tag is-success">Kubernetes</span>
                     
                 </div>
             </div>

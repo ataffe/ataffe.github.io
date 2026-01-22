@@ -52,12 +52,16 @@ layout: home
                         About Me
                     </h2>
                     <div class="content">
-                        <p>Welcome to my personal website! I'm a developer passionate about designing and building, robust, scalable, maintainable backend web services and computer vision based systems.</p>
-                        <a href="{{ '/about' | relative_url }}" class="button is-primary">Learn More</a>
+                        <p>Welcome to my personal website! I'm a software engineer passionate about designing and building, robust, scalable, maintainable backend web services and computer vision based systems.</p>
+                        <div class="level">
+                            <div class="level-item">
+                                <a href="{{ '/about' | relative_url }}" class="button is-primary">Learn More</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-            
+            <!--Experience Column-->
             <div class="column">
                 <div class="box">
                     <h2 class="title is-3">
@@ -66,31 +70,34 @@ layout: home
                         </span>
                         Experience
                     </h2>
-                    
                     <div class="content">
-                        <p>I have 5 years of experience working at companies like PayPal and Axon. See my CV for more details. </p>
+                        <p>I have 5 years of experience working as a backend engineer at companies like PayPal, Axon and AWS. See my CV for more details. </p>
                         <div class="level">
-                                <div class="level-item">
-                                    <figure class="image is-64x64">
-                                        <img src="assets/images/paypal-logo.svg" alt="PayPal Logo">
-                                    </figure>
-                                </div>
-                                <div class="level-item">
-                                    <figure class="image is-64x64">
-                                        <img src="assets/images/aws-logo.svg" alt="AWS logo">
-                                    </figure>
-                                </div>
-                                <div class="level-item">
-                                    <figure class="image is-64x64">
-                                        <img src="assets/images/axon-logo.svg" alt="Axon logo">
-                                    </figure>
-                                </div>
+                            <div class="level-item">
+                                <a href="{{ '/cv' | relative_url }}" class="button is-primary">View CV</a>
+                            </div>
                         </div>
-                        <a href="{{ '/cv' | relative_url }}" class="button is-primary">View CV</a>
+                        <div class="level">
+                            <div class="level-item">
+                                <figure class="image is-64x64 is-flex is-align-items-center">
+                                    <img src="assets/images/paypal-logo.svg" alt="PayPal Logo">
+                                </figure>
+                            </div>
+                            <div class="level-item">
+                                <figure class="image is-64x64 is-flex is-align-items-center">
+                                    <img src="assets/images/aws-logo.svg" alt="AWS logo">
+                                </figure>
+                            </div>
+                            <div class="level-item">
+                                <figure class="image is-64x64 is-flex is-align-items-center">
+                                    <img src="assets/images/axon-logo.svg" alt="Axon logo">
+                                </figure>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-            
+            <!--Projects Column-->
             <div class="column">
                 <div class="box">
                     <h2 class="title is-3">
@@ -100,8 +107,12 @@ layout: home
                         Projects
                     </h2>
                     <div class="content">
-                        <p>From backend systems for millions of customers to computer vision systems for healthcare research. Explore some of the projects I've built.</p>
-                        <a href="{{ '/projects' | relative_url }}" class="button is-primary">View Projects</a>
+                        <p>From personal projects to computer vision systems for healthcare research at UC Davis. Explore some of the projects I've built.</p>
+                        <div class="level">
+                            <div class="level-item">
+                                <a href="{{ '/projects' | relative_url }}" class="button is-primary">View Projects</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
