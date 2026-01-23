@@ -23,9 +23,8 @@ email: taffealexander@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
   Welcome to my portfolio, where I showcase my projects and share insights based on my experiences.
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
-twitter_username: 
-github_username:  # Add your GitHub username here
+url: "" # the base hostname & protocol for your site, e.g. http://example.com 
+github_username: ataffe
 
 # Build settings
 # theme: minima  # Commented out to use custom layouts
