@@ -10,7 +10,8 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
     
     <!-- Font Awesome for icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"> -->
+     <script src="https://kit.fontawesome.com/1c421e2a08.js" crossorigin="anonymous"></script>
     
     <!-- Custom CSS -->
     <link rel="stylesheet" href="/assets/css/main.css">
@@ -92,6 +93,11 @@ document.addEventListener('DOMContentLoaded', () => {
             <h2 class="title is-2">Personal Information</h2>
             <div class="columns">
                 <div class="column">
+                    <figure class="image">
+                        <img class="is-rounded" src="../assets/images/selfie.jpg" alt="Profile Picture">
+                    </figure>
+                </div>
+                <div class="column">
                     <div class="content">
                         <p><strong>Name:</strong> Alexander Taffe</p>
                         <p><strong>Email:</strong> <a href="mailto:taffealexander@gmail.com">taffealexander@gmail.com</a></p>
@@ -102,35 +108,42 @@ document.addEventListener('DOMContentLoaded', () => {
                         <p><strong>Phone:</strong> +1 (602) 575 - 6099</p>
                         
                         <div class="level">
-                            
-                            <div class="level-item">
-                                    <a href=https://github.com/ataffe target="_blank">
-                                        <figure class="image is-64x64 is-flex is-align-items-center">
-                                            <img src="../assets/images/github-logo.svg">
-                                        </figure>
-                                    </a>
+                            <div class="level-left">
+                                
+                                <div class="level-item">
+                                        <p>
+                                            <a href=https://github.com/ataffe target="_blank">
+                                                <span class="icon is-large">
+                                                    <i class="fab fa-github fa-3x"></i>
+                                                </span>
+                                            </a>
+                                        </p>
+                                </div>
+                                
+                                
+                                <div class="level-item">
+                                        <a href=https://www.linkedin.com/in/alexander-taffe target="_blank">
+                                            <span class="icon is-large">
+                                                <i class="fa-brands fa-linkedin fa-3x"></i>
+                                            </span>
+                                        </a>
+                                </div>
+                                
+                                
+                                <div class="level-item">
+                                        <a href=https://medium.com/@taffealexander target="_blank">
+                                            <span class="icon is-large">
+                                                <i class="fa-brands fa-medium fa-3x"></i>
+                                            </span>
+                                        </a>
+                                </div>
+                                
                             </div>
                             
-                            
-                            <div class="level-item">
-                                    <a href=https://www.linkedin.com/in/alexander-taffe target="_blank">
-                                        <figure class="image is-128x128 is-flex is-align-items-center">
-                                            <img src="../assets/images/linkedin-logo.png">
-                                        </figure>
-                                    </a>
-                            </div>
-                            
-
-                            
-
                         </div> 
                     </div>
                 </div>
-                <div class="column">
-                    <figure class="image">
-                        <img class="is-rounded" src="../assets/images/selfie.jpg" alt="Profile Picture">
-                    </figure>
-                </div>
+                
             </div>
             
             
@@ -142,7 +155,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <h2 class="title is-2">Summary</h2>
             <div class="content">
                 <p>A passionate developer with experience in building backend web services and computer vision systems.
-Always eager to learn new technologies and tackle challenging problems.</p>
+Always eager to learn new technologies and tackle challenging problems. Currently looking for <strong>backend sofware engineer</strong>, <strong>full-stack software engineer</strong>, or <strong>computer vision engineer roles</strong>.</p>
 
             </div>
         </section>
@@ -328,7 +341,7 @@ Always eager to learn new technologies and tackle challenging problems.</p>
 
             
             <div class="content">
-                <h4 class="title is-5">Cloud Frameworks</h4>
+                <h4 class="title is-5">Cloud Platforms</h4>
                 <div class="tags">
                     
                     <span class="tag is-danger">AWS</span>
@@ -345,6 +358,8 @@ Always eager to learn new technologies and tackle challenging problems.</p>
                     <span class="tag is-info">OpenCV</span>
                     
                     <span class="tag is-info">PyTorch</span>
+                    
+                    <span class="tag is-info">ONNX Runtime</span>
                     
                     <span class="tag is-info">Numpy</span>
                     
@@ -390,8 +405,6 @@ Always eager to learn new technologies and tackle challenging problems.</p>
             <div class="content">
                 
                 <p><strong>English:</strong> Native</p>
-                
-                <p><strong>Another Language:</strong> Fluent</p>
                 
             </div>
         </section>

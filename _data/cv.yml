@@ -5,10 +5,11 @@ personal_info:
   phone: "+1 (602) 575 - 6099"
   linkedin: "https://www.linkedin.com/in/alexander-taffe"
   github: "https://github.com/ataffe"
+  medium: "https://medium.com/@taffealexander"
 
 summary: |
   A passionate developer with experience in building backend web services and computer vision systems.
-  Always eager to learn new technologies and tackle challenging problems.
+  Always eager to learn new technologies and tackle challenging problems. Currently looking for **backend sofware engineer**, **full-stack software engineer**, or **computer vision engineer roles**.
 
 education:
   - degree: "Master of Science in Computer Science"
@@ -94,6 +95,7 @@ skills:
   frameworks:
     - "OpenCV"
     - "PyTorch"
+    - "ONNX Runtime"
     - "Numpy"
     - "Gin"
     - "React"
@@ -120,5 +122,3 @@ skills:
 languages:
   - name: "English"
     proficiency: "Native"
-  - name: "Another Language"
-    proficiency: "Fluent"

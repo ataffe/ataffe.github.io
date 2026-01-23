@@ -13,6 +13,11 @@ permalink: /cv/
             <h2 class="title is-2">Personal Information</h2>
             <div class="columns">
                 <div class="column">
+                    <figure class="image">
+                        <img class="is-rounded" src="../assets/images/selfie.jpg" alt="Profile Picture">
+                    </figure>
+                </div>
+                <div class="column">
                     <div class="content">
                         <p><strong>Name:</strong> {{ cv.personal_info.name }}</p>
                         <p><strong>Email:</strong> <a href="mailto:{{ cv.personal_info.email }}">{{ cv.personal_info.email }}</a></p>
@@ -23,35 +28,42 @@ permalink: /cv/
                         <p><strong>Phone:</strong> {{ cv.personal_info.phone }}</p>
                         {% endif %}
                         <div class="level">
-                            {% if cv.personal_info.github %}
-                            <div class="level-item">
-                                    <a href={{ cv.personal_info.github }} target="_blank">
-                                        <figure class="image is-64x64 is-flex is-align-items-center">
-                                            <img src="../assets/images/github-logo.svg">
-                                        </figure>
-                                    </a>
+                            <div class="level-left">
+                                {% if cv.personal_info.github %}
+                                <div class="level-item">
+                                        <p>
+                                            <a href={{ cv.personal_info.github }} target="_blank">
+                                                <span class="icon is-large">
+                                                    <i class="fab fa-github fa-3x"></i>
+                                                </span>
+                                            </a>
+                                        </p>
+                                </div>
+                                {% endif %}
+                                {% if cv.personal_info.linkedin %}
+                                <div class="level-item">
+                                        <a href={{ cv.personal_info.linkedin }} target="_blank">
+                                            <span class="icon is-large">
+                                                <i class="fa-brands fa-linkedin fa-3x"></i>
+                                            </span>
+                                        </a>
+                                </div>
+                                {% endif %}
+                                {% if cv.personal_info.medium %}
+                                <div class="level-item">
+                                        <a href={{ cv.personal_info.medium }} target="_blank">
+                                            <span class="icon is-large">
+                                                <i class="fa-brands fa-medium fa-3x"></i>
+                                            </span>
+                                        </a>
+                                </div>
+                                {% endif %}
                             </div>
-                            {% endif %}
-                            {% if cv.personal_info.linkedin %}
-                            <div class="level-item">
-                                    <a href={{ cv.personal_info.linkedin }} target="_blank">
-                                        <figure class="image is-128x128 is-flex is-align-items-center">
-                                            <img src="../assets/images/linkedin-logo.png">
-                                        </figure>
-                                    </a>
-                            </div>
-                            {% endif %}
-
                             
-
                         </div> 
                     </div>
                 </div>
-                <div class="column">
-                    <figure class="image">
-                        <img class="is-rounded" src="../assets/images/selfie.jpg" alt="Profile Picture">
-                    </figure>
-                </div>
+                
             </div>
             
             
@@ -151,7 +163,7 @@ permalink: /cv/
 
             {% if cv.skills.cloud_frameworks %}
             <div class="content">
-                <h4 class="title is-5">Cloud Frameworks</h4>
+                <h4 class="title is-5">Cloud Platforms</h4>
                 <div class="tags">
                     {% for skill in cv.skills.cloud_frameworks %}
                     <span class="tag is-danger">{{ skill }}</span>
