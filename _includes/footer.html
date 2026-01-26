@@ -1,21 +1,11 @@
 <footer class="footer">
     <div class="content has-text-centered">
         <p>
-            <strong>Alexander Taffe</strong> - Personal Website
+            Alexander Taffe
         </p>
         <p>
             {% if site.email %}
-            <a href="mailto:{{ site.email }}">{{ site.email }}</a>
-            {% endif %}
-        </p>
-        <p>
-            {% if site.github_username %}
-            <a href="https://github.com/{{ site.github_username }}" target="_blank">
-                <span class="icon">
-                    <i class="fab fa-github"></i>
-                </span>
-                GitHub
-            </a>
+            Email:<a href="mailto:{{ site.email }}">{{ site.email }}</a>
             {% endif %}
         </p>
     </div>
