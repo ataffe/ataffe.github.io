@@ -27,6 +27,7 @@ education:
 
 experience:
   - title: "Graduate Research Assistant (Marcu Lab)"
+    logo_url: "../assets/images/ucdavis_logo.png"
     company: "The University of California, Davis"
     location: "Davis, California"
     start_date: "02/2024"
