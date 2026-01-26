@@ -116,7 +116,7 @@ permalink: /cv/
             <h2 class="title is-2">Experience</h2>
             {% for job in cv.experience %}
             <div class="box">
-                <div class="columns is-vcentered">
+                <div class="columns">
                     {% if job.logo_url %}
                     <div class="column is-2">
                         <figure class="image is-96x96 mx-auto">
@@ -129,18 +129,26 @@ permalink: /cv/
                         <h4 class="subtitle is-5">{{ job.company }} - {{ job.location }}</h4>
                         <h6 class="has-text-grey">{{ job.start_date }} - {{ job.end_date }}</h6>
                     </div>
-                    <div class="column is-3">
-                        <h6 class="title is-5">Tech Stack</h6>
-                        <div class="tags">
-                            {% for skill in job.teck_stack %}
-                            <span class="tag is-link">{{ skill }}</span>
-                            {% endfor %}
-                        </div>
-                    </div>
                 </div>
                 <div class="content">
                     {{ job.description | markdownify }}
                 </div>
+                <div class="level">
+                    <div class="level-left">
+                        <div class="level-item">
+                            <h6 class="title is-6 mb-0">Tech Stack:</h6>
+                        </div>
+                        <div class="level-item">
+                            <div class="tags mt-0">
+                                {% for skill in job.teck_stack %}
+                                <span class="tag is-link">{{ skill }}</span>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                
             </div>
             {% endfor %}
         </section>
