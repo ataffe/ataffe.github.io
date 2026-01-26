@@ -17,6 +17,7 @@ education:
     location: "Davis, California"
     year: "2020"
     description: "Revelant coursework: Computer Vision, Machine Learning & Discovery, Vision Language Models, AI and the Human Alignment Problem."
+    img: "assets/images/"
   
   - degree: "Bachelor of Science in Engineering in Computer Systems Engineering"
     institution: "Arizona State University"
