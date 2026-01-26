@@ -87,3 +87,7 @@ html {
 .custom-rounded {
     border-radius: 10px; /* or any other value */
   }
+
+.is-dense {
+    gap: 0.5rem; /* Adjust the value as needed (e.g., 0.25rem, 0rem) */
+}

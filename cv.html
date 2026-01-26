@@ -10,8 +10,8 @@ permalink: /cv/
     <div class="column is-three-quarters">
         <!-- Personal Information -->
         <section class="section">
-            <h2 class="title is-2">Personal Information</h2>
-            <div class="columns">
+            <!-- <h2 class="title is-2">Personal Information</h2> -->
+            <div class="columns has-text-centered is-vcentered">
                 <div class="column">
                     <figure class="image">
                         <img class="is-rounded" src="../assets/images/selfie.jpg" alt="Profile Picture">
@@ -19,7 +19,7 @@ permalink: /cv/
                 </div>
                 <div class="column">
                     <div class="content">
-                        <p><strong>Name:</strong> {{ cv.personal_info.name }}</p>
+                        <h3 class="title is-2">{{ cv.personal_info.name }}</h3>
                         <p><strong>Email:</strong> <a href="mailto:{{ cv.personal_info.email }}">{{ cv.personal_info.email }}</a></p>
                         {% if cv.personal_info.location %}
                         <p><strong>Location:</strong> {{ cv.personal_info.location }}</p>
@@ -27,39 +27,33 @@ permalink: /cv/
                         {% if cv.personal_info.phone %}
                         <p><strong>Phone:</strong> {{ cv.personal_info.phone }}</p>
                         {% endif %}
-                        <div class="level">
-                            <div class="level-left">
-                                {% if cv.personal_info.github %}
+                        <div class="level has-text-centered">
+                            
                                 <div class="level-item">
                                         <p>
-                                            <a href={{ cv.personal_info.github }} target="_blank">
+                                            {% if cv.personal_info.github %}
+                                            <a class="mr-3" href={{ cv.personal_info.github }} target="_blank">
                                                 <span class="icon is-large">
                                                     <i class="fab fa-github fa-3x"></i>
                                                 </span>
                                             </a>
+                                            {% endif %}
+                                            {% if cv.personal_info.linkedin %}
+                                            <a class="mr-3" href={{ cv.personal_info.linkedin }} target="_blank">
+                                                <span class="icon is-large">
+                                                    <i class="fa-brands fa-linkedin fa-3x"></i>
+                                                </span>
+                                            </a>
+                                            {% endif %}
+                                            {% if cv.personal_info.medium %}
+                                            <a href={{ cv.personal_info.medium }} target="_blank">
+                                                <span class="icon is-large">
+                                                    <i class="fa-brands fa-medium fa-3x"></i>
+                                                </span>
+                                            </a>
+                                            {% endif %}
                                         </p>
                                 </div>
-                                {% endif %}
-                                {% if cv.personal_info.linkedin %}
-                                <div class="level-item">
-                                        <a href={{ cv.personal_info.linkedin }} target="_blank">
-                                            <span class="icon is-large">
-                                                <i class="fa-brands fa-linkedin fa-3x"></i>
-                                            </span>
-                                        </a>
-                                </div>
-                                {% endif %}
-                                {% if cv.personal_info.medium %}
-                                <div class="level-item">
-                                        <a href={{ cv.personal_info.medium }} target="_blank">
-                                            <span class="icon is-large">
-                                                <i class="fa-brands fa-medium fa-3x"></i>
-                                            </span>
-                                        </a>
-                                </div>
-                                {% endif %}
-                            </div>
-                            
                         </div> 
                     </div>
                 </div>
