@@ -84,8 +84,6 @@ html {
     margin-top: 2rem;
 }
 
-.cv-logo-border {
-  border: 2px solid #000;
-  padding: 4px;
-  background: white;
-}
+.custom-rounded {
+    border-radius: 10px; /* or any other value */
+  }
