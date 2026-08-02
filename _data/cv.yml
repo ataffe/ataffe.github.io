@@ -159,6 +159,7 @@ skills:
   databases:
     - "PostgreSQL"
     - "MySQL"
+    - "Elasticsearch"
     - "DynamoDB"
     - "AWS S3"
   
@@ -173,6 +174,7 @@ skills:
     - "Grafana"
     - "Docker"
     - "Kubernetes"
+    - "Prometheus"
 
 languages:
   - name: "English"
