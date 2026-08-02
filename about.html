@@ -6,42 +6,102 @@ permalink: /about/
 
 {% assign about = site.data.about %}
 
-<div class="content">
-    <div class="block">
-        <img class="custom-rounded" src="../assets/images/betsy-ross.jpg" height="400" width="300">
-        <p>Welcome to my personal website! I'm Alexander Taffe, a software engineer currently based in Sacramento, California!</p>
+<section class="mb-14 flex flex-col items-center gap-8 sm:flex-row sm:items-start">
+    <img class="h-48 w-36 shrink-0 rounded-2xl object-cover shadow-lg ring-4 ring-white dark:ring-zinc-900"
+         src="{{ '/assets/images/betsy-ross.jpg' | relative_url }}" alt="Alexander Taffe">
+    <div class="text-center sm:text-left">
+        <p class="section-kicker">// About</p>
+        <h1 class="text-3xl font-bold text-zinc-900 sm:text-4xl dark:text-zinc-50">Hey, I&rsquo;m Alexander</h1>
+        <p class="prose-body mt-3 max-w-2xl">
+            Welcome to my personal website! I'm Alexander Taffe, a software engineer currently based in Sacramento, California!
+        </p>
     </div>
+</section>
 
-    
-    
-    <h2 class="title is-3">Who I Am</h2>
-    <p>{{ about.whoami | markdownify}}</p>
-    
-    <h2 class="title is-3">What I Do</h2>
-    <p>{{ about.whatido | markdownify }}</p>
+<div class="space-y-14">
+    <section>
+        <h2 class="section-title mb-4">Who I Am</h2>
+        <div class="prose-body max-w-3xl">{{ about.whoami | markdownify }}</div>
+    </section>
 
-    <h2 class="title is-3">Hobbies</h2>
-    <p>When I'm not building software systems, I enjoy:</p>
-    <ul class="fa-ul">
-        <li><span class="fa-li"><i class="fa-solid fa-gamepad"></i></span><strong>Video Games</strong>: Fallout 4, Elder Scrolls V: Skyrim, Final Fantasy</li>
-        <li><span class="fa-li"><i class="fa-solid fa-location-dot"></i></span><strong>Traveling:</strong> I love Exploring New Places and cities with my girlfriend</li>
-        <li><span class="fa-li"><i class="fa-solid fa-beer"></i></span><strong>Craft Beer</strong></li>
-        <li><span class="fa-li"><i class="fa-solid fa-mountain"></i></span><strong>Hiking and Outdoor Activities</strong></li>
-        <li><span class="fa-li"><i class="fa-solid fa-building-columns"></i></span><strong>Museums</strong>: Currently on my todo list: <a href="https://www.metmuseum.org/">The Met</a> (New York), <a href="https://www.fieldmuseum.org/">Field Museum</a> (Chicago), <a href="https://www.calacademy.org/">California Academy of Sciences</a> (San Francisco), <a href="https://www.si.edu/">Smithsonian Museums</a> (Washington D.C.)</li>
-        <li><span class="fa-li"><i class="fa-solid fa-film"></i></span><strong>Watching Movies / TV Shows</strong>: (Currently watching: Fallout, Industry, A Knight of the Seven Kingdoms, 90 Day Fiance)</li>
-        <li><span class="fa-li"><i class="fa-solid fa-print"></i></span><strong>3D Printing</strong>:  recently got an Ender 3D printer from a friend so I've gotten into designing and printing 3D models.</li>
-        <li><span class="fa-li"><i class="fa-solid fa-masks-theater"></i></span><strong>Stand Up Comedy</strong></li>
-        <li><span class="fa-li"><i class="fa-solid fa-cat"></i></span><strong>Cats</strong>: I have 2 black cats.</li>
-    </ul>
-    
-    <h2 class="title is-3">Get In Touch</h2>
-    <p>Feel free to reach out if you'd like to collaborate, have questions, or just want to connect!</p>
-    <p>
-        <a href="mailto:{{ site.email }}" class="button is-primary">
-            <span class="icon">
-                <i class="fas fa-envelope"></i>
-            </span>
+    <section>
+        <h2 class="section-title mb-4">What I Do</h2>
+        <div class="prose-body max-w-3xl">{{ about.whatido | markdownify }}</div>
+    </section>
+
+    <section>
+        <h2 class="section-title mb-2">Hobbies</h2>
+        <p class="prose-body mb-6">When I'm not building software systems, I enjoy:</p>
+        <div class="grid gap-4 sm:grid-cols-2">
+            <div class="card flex items-start gap-3 p-4">
+                <div class="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-emerald-500/10 text-emerald-600 dark:text-emerald-400">
+                    <i class="fa-solid fa-gamepad"></i>
+                </div>
+                <p class="prose-body text-sm"><strong>Video Games</strong>: Fallout 4, Elder Scrolls V: Skyrim, Final Fantasy</p>
+            </div>
+            <div class="card flex items-start gap-3 p-4">
+                <div class="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-emerald-500/10 text-emerald-600 dark:text-emerald-400">
+                    <i class="fa-solid fa-location-dot"></i>
+                </div>
+                <p class="prose-body text-sm"><strong>Traveling</strong>: I love exploring new places and cities with my girlfriend</p>
+            </div>
+            <div class="card flex items-start gap-3 p-4">
+                <div class="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-emerald-500/10 text-emerald-600 dark:text-emerald-400">
+                    <i class="fa-solid fa-beer"></i>
+                </div>
+                <p class="prose-body text-sm"><strong>Craft Beer</strong></p>
+            </div>
+            <div class="card flex items-start gap-3 p-4">
+                <div class="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-emerald-500/10 text-emerald-600 dark:text-emerald-400">
+                    <i class="fa-solid fa-mountain"></i>
+                </div>
+                <p class="prose-body text-sm"><strong>Hiking and Outdoor Activities</strong></p>
+            </div>
+            <div class="card flex items-start gap-3 p-4">
+                <div class="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-emerald-500/10 text-emerald-600 dark:text-emerald-400">
+                    <i class="fa-solid fa-building-columns"></i>
+                </div>
+                <p class="prose-body text-sm">
+                    <strong>Museums</strong>: currently on my todo list &mdash;
+                    <a href="https://www.metmuseum.org/">The Met</a> (New York),
+                    <a href="https://www.fieldmuseum.org/">Field Museum</a> (Chicago),
+                    <a href="https://www.calacademy.org/">California Academy of Sciences</a> (San Francisco),
+                    <a href="https://www.si.edu/">Smithsonian Museums</a> (Washington D.C.)
+                </p>
+            </div>
+            <div class="card flex items-start gap-3 p-4">
+                <div class="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-emerald-500/10 text-emerald-600 dark:text-emerald-400">
+                    <i class="fa-solid fa-film"></i>
+                </div>
+                <p class="prose-body text-sm"><strong>Watching Movies / TV Shows</strong>: currently watching Fallout, Industry, A Knight of the Seven Kingdoms, 90 Day Fiance</p>
+            </div>
+            <div class="card flex items-start gap-3 p-4">
+                <div class="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-emerald-500/10 text-emerald-600 dark:text-emerald-400">
+                    <i class="fa-solid fa-print"></i>
+                </div>
+                <p class="prose-body text-sm"><strong>3D Printing</strong>: recently got an Ender 3D printer from a friend so I've gotten into designing and printing 3D models</p>
+            </div>
+            <div class="card flex items-start gap-3 p-4">
+                <div class="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-emerald-500/10 text-emerald-600 dark:text-emerald-400">
+                    <i class="fa-solid fa-masks-theater"></i>
+                </div>
+                <p class="prose-body text-sm"><strong>Stand Up Comedy</strong></p>
+            </div>
+            <div class="card flex items-start gap-3 p-4">
+                <div class="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-emerald-500/10 text-emerald-600 dark:text-emerald-400">
+                    <i class="fa-solid fa-cat"></i>
+                </div>
+                <p class="prose-body text-sm"><strong>Cats</strong>: I have 2 black cats</p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2 class="section-title mb-3">Get In Touch</h2>
+        <p class="prose-body mb-6">Feel free to reach out if you'd like to collaborate, have questions, or just want to connect!</p>
+        <a href="mailto:{{ site.email }}" class="btn-primary">
+            <i class="fas fa-envelope"></i>
             <span>Email Me</span>
         </a>
-    </p>
+    </section>
 </div>

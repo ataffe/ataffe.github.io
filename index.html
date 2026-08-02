@@ -2,173 +2,102 @@
 layout: home
 ---
 
-<section class="hero is-primary is-bold">
-    <div class="hero-body">
-        <div class="level">
-            <div class="level-left">
-                <div class="level-item">
-                    <figure class="image">
-                        <img class="custom-rounded" src="assets/images/selfie.jpg">
-                    </figure>
+<section class="relative overflow-hidden border-b border-zinc-200 dark:border-zinc-800">
+    <div class="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_20%_20%,theme(colors.emerald.500/0.12),transparent_55%)]"></div>
+    <div class="mx-auto max-w-5xl px-6 py-16 sm:py-24">
+        <div class="flex flex-col-reverse items-center gap-10 sm:flex-row sm:gap-12">
+            <div class="flex-1 text-center sm:text-left">
+                <p class="section-kicker">$ whoami</p>
+                <h1 class="text-4xl font-bold tracking-tight text-zinc-900 sm:text-5xl dark:text-zinc-50">
+                    {{ site.title }}
+                </h1>
+                <p class="mt-4 max-w-xl text-lg text-zinc-600 dark:text-zinc-400">
+                    {{ site.description }}
+                </p>
+                <div class="mt-8 flex flex-wrap justify-center gap-3 sm:justify-start">
+                    <a href="{{ '/cv' | relative_url }}" class="btn-primary">
+                        <i class="fas fa-file-lines"></i> View CV
+                    </a>
+                    <a href="{{ '/about' | relative_url }}" class="btn-secondary">
+                        About Me
+                    </a>
                 </div>
-                <div class="level-item">
-                    <div class="container">
-                        <h1 class="title is-1 is-spaced">
-                            {{ site.title }}
-                        </h1>
-                        <h4 class="subtitle is-4">
-                            {{ site.description }}
-                        </h4>
-                        <!-- <div class="buttons">
-                            <a class="button is-light is-large" href="{{ '/cv' | relative_url }}">
-                                <span class="icon">
-                                    <i class="fas fa-file-alt"></i>
-                                </span>
-                                <span>View CV</span>
-                            </a>
-                            <a class="button is-light is-large" href="{{ '/projects' | relative_url }}">
-                                <span class="icon">
-                                    <i class="fas fa-code"></i>
-                                </span>
-                                <span>View Projects</span>
-                            </a>
-                        </div> -->
-                    </div>
-                </div>
+            </div>
+            <div class="shrink-0">
+                <img src="{{ '/assets/images/selfie.jpg' | relative_url }}" alt="{{ site.title }}"
+                     class="h-36 w-36 rounded-2xl object-cover shadow-xl ring-4 ring-white sm:h-48 sm:w-48 dark:ring-zinc-900">
             </div>
         </div>
     </div>
 </section>
 
-<section class="section">
-    <div class="container">
-        <div class="columns">
-            <div class="column">
-                <div class="box">
-                    <h2 class="title is-3">
-                        <span class="icon">
-                            <i class="fas fa-user"></i>
-                        </span>
-                        About Me
-                    </h2>
-                    <div class="content">
-                        <p>Welcome to my personal website! I'm a software engineer passionate about designing and building, robust, scalable, maintainable backend web services and computer vision based systems.</p>
-                        <div class="level">
-                            <div class="level-item">
-                                <a href="{{ '/about' | relative_url }}" class="button is-primary">Learn More</a>
-                            </div>
-                        </div>
-                    </div>
+<section class="mx-auto max-w-5xl px-6 py-16 sm:py-20">
+    <div class="grid gap-6 sm:grid-cols-3">
+        <div class="card card-hover flex flex-col p-6">
+            <div class="mb-4 flex h-10 w-10 items-center justify-center rounded-lg bg-emerald-500/10 text-emerald-600 dark:text-emerald-400">
+                <i class="fas fa-user"></i>
+            </div>
+            <h2 class="text-lg font-semibold text-zinc-900 dark:text-zinc-50">About Me</h2>
+            <p class="prose-body mt-2 flex-1 text-sm">
+                I'm a software engineer passionate about designing and building robust, scalable, maintainable backend web services and computer vision based systems.
+            </p>
+            <a href="{{ '/about' | relative_url }}" class="group mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-emerald-600 dark:text-emerald-400">
+                Learn more <i class="fas fa-arrow-right text-xs transition-transform group-hover:translate-x-0.5"></i>
+            </a>
+        </div>
+
+        <div class="card card-hover flex flex-col p-6">
+            <div class="mb-4 flex h-10 w-10 items-center justify-center rounded-lg bg-emerald-500/10 text-emerald-600 dark:text-emerald-400">
+                <i class="fas fa-briefcase"></i>
+            </div>
+            <h2 class="text-lg font-semibold text-zinc-900 dark:text-zinc-50">Experience</h2>
+            <p class="prose-body mt-2 text-sm">
+                5 years as a backend engineer at companies like PayPal, Axon and AWS. See my CV for the full story.
+            </p>
+            <div class="mt-4 flex items-center gap-3">
+                <div class="flex h-9 items-center rounded-md bg-white px-2 shadow-sm ring-1 ring-zinc-900/5">
+                    <img src="{{ '/assets/images/paypal-logo-square.jpg' | relative_url }}" alt="PayPal" class="h-5 w-auto object-contain">
+                </div>
+                <div class="flex h-9 items-center rounded-md bg-white px-2 shadow-sm ring-1 ring-zinc-900/5">
+                    <img src="{{ '/assets/images/aws-logo-square.jpg' | relative_url }}" alt="AWS" class="h-5 w-auto object-contain">
+                </div>
+                <div class="flex h-9 items-center rounded-md bg-white px-2 shadow-sm ring-1 ring-zinc-900/5">
+                    <img src="{{ '/assets/images/axon-logo-square.jpg' | relative_url }}" alt="Axon" class="h-5 w-auto object-contain">
                 </div>
             </div>
-            <!--Experience Column-->
-            <div class="column">
-                <div class="box">
-                    <h2 class="title is-3">
-                        <span class="icon">
-                            <i class="fas fa-briefcase"></i>
-                        </span>
-                        Experience
-                    </h2>
-                    <div class="content">
-                        <p>I have 5 years of experience working as a backend engineer at companies like PayPal, Axon and AWS. See my CV for more details. </p>
-                        <div class="level">
-                            <div class="level-item">
-                                <a href="{{ '/cv' | relative_url }}" class="button is-primary">View CV</a>
-                            </div>
-                        </div>
-                        <div class="level">
-                            <div class="level-item">
-                                <figure class="image is-64x64 is-flex is-align-items-center">
-                                    <img src="assets/images/paypal-logo-square.jpg" alt="PayPal Logo">
-                                </figure>
-                            </div>
-                            <div class="level-item">
-                                <figure class="image is-64x64 is-flex is-align-items-center">
-                                    <img src="assets/images/aws-logo-square.jpg" alt="AWS logo">
-                                </figure>
-                            </div>
-                            <div class="level-item">
-                                <figure class="image is-128x128 is-flex is-align-items-center">
-                                    <img src="assets/images/axon-logo-square.jpg" alt="Axon logo">
-                                </figure>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <a href="{{ '/cv' | relative_url }}" class="group mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-emerald-600 dark:text-emerald-400">
+                View CV <i class="fas fa-arrow-right text-xs transition-transform group-hover:translate-x-0.5"></i>
+            </a>
+        </div>
+
+        <div class="card card-hover flex flex-col p-6">
+            <div class="mb-4 flex h-10 w-10 items-center justify-center rounded-lg bg-emerald-500/10 text-emerald-600 dark:text-emerald-400">
+                <i class="fas fa-diagram-project"></i>
             </div>
-            <!--Projects Column-->
-            <div class="column">
-                <div class="box">
-                    <h2 class="title is-3">
-                        <span class="icon">
-                            <i class="fas fa-project-diagram"></i>
-                        </span>
-                        Projects
-                    </h2>
-                    <div class="content">
-                        <p>From personal projects to computer vision systems for healthcare research at UC Davis. Explore some of the projects I've built.</p>
-                        <div class="level">
-                            <div class="level-item">
-                                <a href="{{ '/projects' | relative_url }}" class="button is-primary">View Projects</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <h2 class="text-lg font-semibold text-zinc-900 dark:text-zinc-50">Projects</h2>
+            <p class="prose-body mt-2 flex-1 text-sm">
+                From personal projects to computer vision systems for healthcare research at UC Davis.
+            </p>
+            <a href="{{ '/projects' | relative_url }}" class="group mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-emerald-600 dark:text-emerald-400">
+                View projects <i class="fas fa-arrow-right text-xs transition-transform group-hover:translate-x-0.5"></i>
+            </a>
         </div>
     </div>
 </section>
 
 {% assign featured_projects = site.data.projects | where: "featured", true %}
 {% if featured_projects.size > 0 %}
-<section class="section">
-    <div class="container">
-        <h2 class="title is-2">Featured Projects</h2>
-        <div class="columns is-multiline">
+<section class="border-t border-zinc-200 dark:border-zinc-800">
+    <div class="mx-auto max-w-5xl px-6 py-16 sm:py-20">
+        <p class="section-kicker">// Featured</p>
+        <h2 class="section-title">Featured Projects</h2>
+        <div class="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {% for project in featured_projects limit: 3 %}
-            <div class="column is-one-third">
-                <div class="card">
-                    {% if project.image %}
-                    <div class="card-image">
-                        <figure class="image is-16by9">
-                            <img src="{{ project.image | relative_url }}" alt="{{ project.title }}">
-                        </figure>
-                    </div>
-                    {% endif %}
-                    <div class="card-content">
-                        <p class="title is-5">{{ project.title }}</p>
-                        <p class="subtitle is-6">{{ project.description }}</p>
-                        <div class="tags">
-                            {% for tech in project.technologies %}
-                            <span class="tag">{{ tech }}</span>
-                            {% endfor %}
-                        </div>
-                        <div class="buttons mt-3">
-                            {% if project.github_url %}
-                            <a href="{{ project.github_url }}" target="_blank" class="button is-small is-dark">
-                                <span class="icon">
-                                    <i class="fab fa-github"></i>
-                                </span>
-                                <span>GitHub</span>
-                            </a>
-                            {% endif %}
-                            {% if project.live_url %}
-                            <a href="{{ project.live_url }}" target="_blank" class="button is-small is-primary">
-                                <span class="icon">
-                                    <i class="fas fa-external-link-alt"></i>
-                                </span>
-                                <span>Demo</span>
-                            </a>
-                            {% endif %}
-                        </div>
-                    </div>
-                </div>
-            </div>
+            {% include project-card.html project=project %}
             {% endfor %}
         </div>
-        <div class="has-text-centered mt-5">
-            <a href="{{ '/projects' | relative_url }}" class="button is-primary is-medium">View All Projects</a>
+        <div class="mt-10 text-center">
+            <a href="{{ '/projects' | relative_url }}" class="btn-secondary">View all projects</a>
         </div>
     </div>
 </section>

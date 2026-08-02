@@ -1,2 +1,5 @@
 _site/
 _site/*
+node_modules/
+.jekyll-cache/
+.claude
