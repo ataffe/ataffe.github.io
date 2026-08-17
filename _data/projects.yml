@@ -1,13 +1,20 @@
-# - title: "Project Title 1"
-#   description: "A brief description of what this project does and what technologies it uses."
-#   image: "/assets/images/project1.jpg"
-#   technologies:
-#     - "JavaScript"
-#     - "React"
-#     - "Node.js"
-#   github_url: "https://github.com/username/project1"
-#   live_url: "https://project1-demo.com"
-#   featured: true
+- title: "MagPieCam"
+  slug: "magpiecam"
+  description: "A smart camera that uses AI to detect objects, and notify users based on rules they set in natural language."
+  image: "/assets/images/projects/magpie/magpicam.jpg"
+  technologies:
+  - "Python"
+  - "Django"
+  - "Computer Vision"
+  - "Gemma4"
+  - "ByteTrack"
+  - "YOLOv11"
+  - "PostgreSQL"
+  - "Terraform"
+  - "RESTful API"
+  - "AWS"
+  github_url: "https://github.com/ataffe/MagPieCam-Core"
+  featured: true
 
 # - title: "Project Title 2"
 #   description: "Another project description highlighting key features and accomplishments."

@@ -22,8 +22,12 @@
                 <i class="fab fa-github"></i> Code
             </a>
             {% endif %}
-            {% if include.project.live_url %}
-            <a href="{{ include.project.live_url }}" target="_blank" rel="noopener" class="btn-primary px-3 py-1.5 text-xs">
+            {% if include.project.slug %}
+            <a href="{{ '/projects/' | append: include.project.slug | append: '/' | relative_url }}" class="btn-primary px-3 py-1.5 text-xs">
+                <i class="fas fa-arrow-right"></i> View Project
+            </a>
+            {% elsif include.project.live_url %}
+            <a href="{{ include.project.project_url }}" target="_blank" rel="noopener" class="btn-primary px-3 py-1.5 text-xs">
                 <i class="fas fa-arrow-up-right-from-square"></i> Demo
             </a>
             {% endif %}

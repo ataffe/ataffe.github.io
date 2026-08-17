@@ -103,4 +103,10 @@
   .prose-body ul {
     @apply list-disc pl-5 space-y-1.5;
   }
+
+  /* Callout box for asides/notes within a section */
+  .note-box {
+    @apply flex items-start gap-3 rounded-lg border border-emerald-500/20 bg-emerald-500/5
+           px-4 py-3 dark:border-emerald-400/20 dark:bg-emerald-400/5;
+  }
 }
