@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="AT">
+  <rect width="64" height="64" rx="14" fill="#10b981"/>
+  <!-- Monogram drawn as paths so it renders identically without a font dependency. -->
+  <g fill="#ffffff" transform="translate(32 32) scale(0.88) translate(-32 -32)">
+    <!-- A -->
+    <path d="M6 46 L17.5 18 h5 L34 46 h-6.6 l-2.3-6.1 h-10.2 L12.6 46 Z m10.9-11.4 h6.2 L20 26.1 Z"/>
+    <!-- T -->
+    <path d="M36 18 h22 v5.6 h-8.1 V46 h-5.8 V23.6 H36 Z"/>
+  </g>
+</svg>

@@ -1,0 +1,18 @@
+title Device Provisioning
+
+participant Camera
+participant MagPieCam-Core
+
+participant iOS App
+
+Camera->MagPieCam-Core:Device Id
+MagPieCam-Core<-iOS App
+Camera<--MagPieCam-Core
+note over MagPieCam-Core,iOS App
+MagPieCam-Core->(3)iOS App
+Camera<-MagPieCam-Core
+Camera<-MagPieCam-Core:Claim Token
+Camera->MagPieCam-Core:(Device Id & Claim Token)
+Camera<-MagPieCam-Core:Device Token
+MagPieCam-Core<-iOS App:Claim Token
+MagPieCam-Core->iOS App:Public Camera Id

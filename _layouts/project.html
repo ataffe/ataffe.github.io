@@ -1,8 +1,10 @@
 ---
-layout: page
+layout: default
 ---
+<div class="mx-auto max-w-7xl px-6 py-12 sm:py-16">
 <article>
-    <a href="{{ '/projects/' | relative_url }}" class="group inline-flex items-center gap-1.5 text-sm font-medium text-emerald-600 dark:text-emerald-400">
+    <a href="{{ '/projects/' | relative_url }}"
+        class="group inline-flex items-center gap-1.5 text-sm font-medium text-emerald-600 dark:text-emerald-400">
         <i class="fas fa-arrow-left text-xs transition-transform group-hover:-translate-x-0.5"></i> Back to projects
     </a>
 
@@ -32,42 +34,51 @@ layout: page
                 <i class="fas fa-arrow-up-right-from-square"></i> Live Demo
             </a>
             {% endif %}
+            {% if page.api_docs_url %}
+            <a href="{{ page.api_docs_url | relative_url }}" class="btn-secondary">
+                <i class="fas fa-file-code"></i> API Docs
+            </a>
+            {% endif %}
         </div>
     </div>
 
     {% if page.image %}
-    <div class="mt-20 max-w-3xl">
+    <div class="mt-20">
         <div class="mx-auto object-contain max-w-md w-full bg-zinc-100 dark:bg-zinc-800">
-            <img src="{{ page.image | relative_url }}" alt="{{ page.title }}" class=" rounded-xl h-full w-full object-cover">
+            <img src="{{ page.image | relative_url }}" alt="{{ page.title }}"
+                class=" rounded-xl h-full w-full object-cover">
         </div>
     </div>
     {% endif %}
 
     {% if page.intro %}
-    <section class="mt-12 max-w-3xl">
+    <section class="mt-12">
         <h2 class="section-title mb-4">Introduction</h2>
-        <p class="prose-body max-w-3xl space-y-2.5">{{ page.intro }}</p>
+        <p class="prose-body max-w-3xl space-y-2.5 whitespace-pre-line">{{ page.intro }}</p>
         {% if page.note1 %}
-        <div class="note-box mt-6">
+        <div class="note-box mt-6 max-w-3xl">
             <i class="fas fa-circle-info mt-0.5 text-emerald-500 dark:text-emerald-400"></i>
-            <p class="prose-body text-sm"><strong class="text-zinc-900 dark:text-zinc-50">Note:</strong> {{ page.note1 }}</p>
+            <p class="prose-body whitespace-pre-line text-sm"><strong
+                    class="text-zinc-900 dark:text-zinc-50">Note:</strong> {{ page.note1
+                }}</p>
         </div>
         {% endif %}
     </section>
     {% endif %}
 
     {% if page.motivation%}
-    <section class="mt-12 max-w-3xl">
-        <h2 class="section-title mb-4">Motivation</h2>
+    <section class="mt-12">
+        <h2 class="section-title mb-4">Why I Built This</h2>
         <div class="flex flex-col gap-6 sm:flex-row sm:items-start">
-            <p class="prose-body space-y-2.5">{{ page.motivation }}</p>
-            <img src="{{ page.image1 | relative_url }}" alt="{{ page.title }}" class="h-48 w-48 shrink-0 rounded-xl object-cover">
+            <p class="prose-body max-w-3xl space-y-2.5 whitespace-pre-line">{{ page.motivation }}</p>
+            <img src="{{ page.image1 | relative_url }}" alt="{{ page.title }}"
+                class="h-48 w-48 shrink-0 rounded-xl object-cover">
         </div>
     </section>
     {% endif %}
 
     {% if page.features %}
-    <section class="mt-12 max-w-3xl">
+    <section class="mt-12">
         <h2 class="section-title mb-4">Key Features</h2>
         <ul class="space-y-2.5">
             {% for feature in page.features %}
@@ -81,7 +92,7 @@ layout: page
     {% endif %}
 
     {% if page.ios_screenshots %}
-    <section class="mt-12 max-w-3xl">
+    <section class="mt-12">
         <h2 class="section-title mb-4">App Screenshots</h2>
         <div class="grid grid-cols-2 gap-4 sm:grid-cols-4">
             {% for screenshot in page.ios_screenshots %}
@@ -95,21 +106,23 @@ layout: page
 
     {% if page.architecture_image %}
     <section class="relative left-1/2 right-1/2 -mx-[50vw] mt-12 w-screen px-6">
-        <h2 class="section-title mb-4">System Architecture</h2>
-        <div class="overflow-hidden rounded-xl border border-zinc-200 dark:border-zinc-800">
+        <div class="mx-auto max-w-5xl overflow-hidden rounded-xl border border-zinc-200 dark:border-zinc-800">
+            <h2 class="section-title mb-4 p-5">System Architecture</h2>
             <img src="{{ page.architecture_image }}" alt="{{ page.title }} system diagram" class="w-full">
         </div>
     </section>
     {% endif %}
 
     {% if page.architecture_features %}
-    <section class="mt-12 max-w-3xl">
+    <section class="mt-12">
         <h2 class="section-title mb-4">Architecture Features</h2>
         <div class="space-y-6">
             {% for group in page.architecture_features %}
             {% if group[1] and group[1].size > 0 %}
             <div>
-                <h3 class="mb-2.5 font-mono text-xs font-semibold uppercase tracking-wide text-emerald-600 dark:text-emerald-400">{{ group[0] }}</h3>
+                <h3
+                    class="mb-2.5 font-mono text-xs font-semibold uppercase tracking-wide text-emerald-600 dark:text-emerald-400">
+                    {{ group[0] }}</h3>
                 <ul class="space-y-2.5">
                     {% for feature in group[1] %}
                     <li class="prose-body flex items-start gap-2.5 text-sm">
@@ -125,20 +138,78 @@ layout: page
     </section>
     {% endif %}
 
+    {% if page.architecture %}
+    <section class="mt-12">
+        <h2 class="section-title mb-4">Architecture Overview</h2>
+        {% if page.architecture.overview %}
+        <p class="prose-body max-w-3xl space-y-2.5 whitespace-pre-line">{{ page.architecture.overview }}</p>
+        {% endif %}
+
+        <div class="mt-8 space-y-6">
+            {% assign step = 0 %}
+            {% for item in page.architecture %}
+            {% unless item[0] == "overview" %}
+            {% assign step = step | plus: 1 %}
+            <div class="flex gap-4">
+                <div
+                    class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-emerald-500/10 font-mono text-sm font-semibold text-emerald-600 dark:text-emerald-400">
+                    {{ step }}
+                </div>
+                <div class="pt-0.5">
+                    <h3 class="mb-1.5 font-semibold text-zinc-900 dark:text-zinc-50">{{ item[1].title }}</h3>
+                    {% capture images_block %}
+                    {% if item[1].image1 or item[1].image2 %}
+                    <div class="flex shrink-0 flex-col justify-center gap-4 p-5 sm:flex-row">
+                        {% if item[1].image1 %}
+                        <div
+                            class="h-95 max-w-full shrink-0 overflow-hidden rounded-xl border border-zinc-200 bg-zinc-100 dark:border-zinc-800 dark:bg-zinc-800">
+                            <img src="{{ item[1].image1 | relative_url }}" alt="{{ page.title }}"
+                                class="h-full w-auto object-contain">
+                        </div>
+                        {% endif %}
+                        {% if item[1].image2 %}
+                        <div
+                            class="h-95 max-w-full shrink-0 overflow-hidden rounded-xl border border-zinc-200 bg-zinc-100 dark:border-zinc-800 dark:bg-zinc-800">
+                            <img src="{{ item[1].image2 | relative_url }}" alt="{{ page.title }}"
+                                class="h-full w-auto object-contain">
+                        </div>
+                        {% endif %}
+                    </div>
+                    {% endif %}
+                    {% endcapture %}
+                    <div
+                        class="flex flex-col gap-6{% if item[1].images_position == 'right' %} sm:flex-row sm:items-start{% endif %}">
+                        {% if item[1].images_position == 'right' %}
+                        <p class="prose-body max-w-3xl whitespace-pre-line">{{ item[1].content }}</p>
+                        {{ images_block }}
+                        {% else %}
+                        {{ images_block }}
+                        <p class="prose-body max-w-3xl whitespace-pre-line">{{ item[1].content }}</p>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            {% endunless %}
+            {% endfor %}
+        </div>
+    </section>
+    {% endif %}
+
     <div class="prose-body mt-10 max-w-3xl space-y-4">
         {{ content }}
     </div>
 
     {% if page.claude_workflow %}
-    <section class="mt-12 max-w-3xl">
+    <section class="mt-12">
         <h2 class="section-title mb-4 flex items-center gap-2.5">
             My Workflow with Claude
-            {% if page.claude_image %}
-            <img src="{{ page.claude_image | relative_url }}" alt="Claude" class="h-6 w-6 shrink-0 object-contain sm:h-9 sm:w-9">
+            {% if page.claude_workflow.claude_image %}
+            <img src="{{ page.claude_workflow.claude_image | relative_url }}" alt="Claude"
+                class="h-6 w-6 shrink-0 object-contain sm:h-9 sm:w-9">
             {% endif %}
         </h2>
         {% if page.claude_workflow.intro %}
-        <p class="prose-body max-w-3xl space-y-2.5">{{ page.claude_workflow.intro }}</p>
+        <p class="prose-body max-w-3xl space-y-2.5 whitespace-pre-line">{{ page.claude_workflow.intro }}</p>
         {% endif %}
 
         {% if page.claude_workflow.practices %}
@@ -153,27 +224,30 @@ layout: page
         {% endif %}
 
         {% if page.claude_workflow.takeaway %}
-        <div class="note-box mt-6">
+        <div class="note-box mt-6 max-w-3xl">
             <i class="fas fa-lightbulb mt-0.5 text-emerald-500 dark:text-emerald-400"></i>
-            <p class="prose-body text-sm"><strong class="text-zinc-900 dark:text-zinc-50">Takeaway:</strong> {{ page.claude_workflow.takeaway }}</p>
+            <p class="prose-body whitespace-pre-line text-sm"><strong
+                    class="text-zinc-900 dark:text-zinc-50">Takeaway:</strong> {{
+                page.claude_workflow.takeaway }}</p>
         </div>
         {% endif %}
     </section>
     {% endif %}
 
     {% if page.related_repos %}
-    <section class="mt-12 max-w-3xl">
+    <section class="mt-12">
         <h2 class="section-title mb-4">Related Repositories</h2>
-        <div class="grid gap-4 sm:grid-cols-2">
+        <div class="grid max-w-5xl gap-3 sm:grid-cols-2 lg:grid-cols-3">
             {% for repo in page.related_repos %}
-            <a href="{{ repo.url }}" target="_blank" rel="noopener" class="card card-hover flex flex-col gap-1 p-4">
+            <a href="{{ repo.url }}" target="_blank" rel="noopener" class="card card-hover flex flex-col gap-0.5 p-3">
                 <span class="text-sm font-semibold text-zinc-900 dark:text-zinc-50">
                     {{ repo.name }} <i class="fas fa-arrow-up-right-from-square text-xs text-zinc-400"></i>
                 </span>
-                <span class="prose-body text-sm">{{ repo.description }}</span>
+                <span class="prose-body text-xs">{{ repo.description }}</span>
             </a>
             {% endfor %}
         </div>
     </section>
     {% endif %}
 </article>
+</div>

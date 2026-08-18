@@ -6,6 +6,11 @@
     <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
     <meta name="description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
 
+    <!-- Favicon: SVG for modern browsers, PNG fallback, and the iOS home-screen icon. -->
+    <link rel="icon" href="{{ '/assets/favicon.svg' | relative_url }}" type="image/svg+xml">
+    <link rel="icon" href="{{ '/assets/favicon-32.png' | relative_url }}" sizes="32x32" type="image/png">
+    <link rel="apple-touch-icon" href="{{ '/assets/apple-touch-icon.png' | relative_url }}">
+
     <!-- Avoid a flash of the wrong theme: only matters for visitors who
          previously switched to light mode, since dark is the server-rendered default. -->
     <script>

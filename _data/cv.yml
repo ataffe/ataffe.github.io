@@ -8,21 +8,21 @@ personal_info:
   medium: "https://medium.com/@taffealexander"
 
 summary: |
-  A passionate developer with experience in building backend web services and computer vision systems.
-  Always eager to learn new technologies and tackle challenging problems. Currently looking for **backend sofware engineer**, **full-stack software engineer**, or **computer vision engineer roles**.
+  A passionate developer with experience in building AI backends, backend web services and computer vision systems.
+  Always eager to learn new technologies and tackle challenging problems. Currently looking for **AI Engineer**, **Backend Software Engineer**, and **Computer Vision Engineer** roles.
 
 education:
   - degree: "Master of Science in Computer Science"
     institution: "University of California, Davis"
     location: "Davis, California"
-    year: "2020"
+    year: "2025"
     description: "**Revelant coursework**: Computer Vision, Machine Learning & Discovery, Vision Language Models, AI and the Human Alignment Problem."
     logo_url: "../assets/images/cv/ucdavis-logo.png"
 
   - degree: "Bachelor of Science in Engineering in Computer Systems Engineering"
     institution: "Arizona State University"
     location: "Tempe, Arizona"
-    year: "2018"
+    year: "2017"
     description: "**Relevant coursework**: Data Structures and Algorithms, Distributed Software Development, Software Engineering."
     logo_url: "../assets/images/cv/asu-logo-square.jpg"
 
@@ -153,7 +153,8 @@ skills:
     - "ONNX Runtime"
     - "Numpy"
     - "Gin"
-    - "React"
+    - "Django"
+    - "Celery"
     - "Spring Boot"
   
   databases:
@@ -161,7 +162,6 @@ skills:
     - "MySQL"
     - "Elasticsearch"
     - "DynamoDB"
-    - "AWS S3"
   
   cloud_frameworks:
     - "AWS"
@@ -170,7 +170,7 @@ skills:
     - "Git"
     - "Splunk"
     - "ArgoCD"
-    - "Jenkins"
+    - "GitHub Actions"
     - "Grafana"
     - "Docker"
     - "Kubernetes"

@@ -1,0 +1,60 @@
+---
+layout: null
+permalink: /projects/magpiecam/api-docs/
+title: "MagPieCam API Docs"
+---
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ page.title }} | {{ site.title }}</title>
+    <meta name="description" content="Interactive REST API reference for MagPieCam-Core.">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swagger-ui-dist@5.32.13/swagger-ui.css">
+    <style>
+        :root { color-scheme: dark; }
+        body { margin: 0; background: #09090b; }
+
+        .back-bar {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.875rem 1.5rem;
+            border-bottom: 1px solid #27272a;
+            background: #18181b;
+        }
+        .back-bar a {
+            color: #34d399;
+            font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+            font-size: 0.875rem;
+            font-weight: 500;
+            text-decoration: none;
+        }
+        .back-bar a:hover { text-decoration: underline; }
+
+        /* Swagger UI ships a light theme only; re-tint it to match the site's dark palette. */
+        .swagger-ui { filter: invert(0.92) hue-rotate(180deg); }
+        .swagger-ui .microlight,
+        .swagger-ui img,
+        .swagger-ui .topbar { filter: invert(1) hue-rotate(180deg); }
+    </style>
+</head>
+<body>
+    <div class="back-bar">
+        <a href="{{ '/projects/magpiecam/' | relative_url }}">&larr; Back to MagPieCam</a>
+    </div>
+    <div id="swagger-ui"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/swagger-ui-dist@5.32.13/swagger-ui-bundle.js" crossorigin></script>
+    <script>
+        window.onload = () => {
+            window.ui = SwaggerUIBundle({
+                url: "https://raw.githubusercontent.com/ataffe/MagPieCam-Core/main/docs/WebServiceAPI.yaml",
+                dom_id: "#swagger-ui",
+                presets: [SwaggerUIBundle.presets.apis],
+                layout: "BaseLayout",
+            });
+        };
+    </script>
+</body>
+</html>
