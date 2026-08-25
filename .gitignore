@@ -3,3 +3,9 @@ _site/*
 node_modules/
 .jekyll-cache/
 .claude
+
+# macOS
+.DS_Store
+
+# Source video recordings (keep locally; commit the web-encoded .mp4 only)
+*.mov

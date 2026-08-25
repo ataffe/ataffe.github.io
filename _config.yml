@@ -56,3 +56,14 @@ collections:
 #   - vendor/cache/
 #   - vendor/gems/
 #   - vendor/ruby/
+
+# Source recordings and macOS cruft should never reach the built site.
+exclude:
+  - "**/*.mov"
+  - .DS_Store
+  - "**/.DS_Store"
+  - node_modules/
+  - package.json
+  - package-lock.json
+  - Gemfile
+  - Gemfile.lock

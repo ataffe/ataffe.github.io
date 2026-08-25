@@ -103,6 +103,10 @@
   .prose-body ul {
     @apply list-disc pl-5 space-y-1.5;
   }
+  .prose-body code {
+    @apply rounded-md border border-zinc-200 bg-zinc-100 px-1.5 py-0.5 font-mono text-[0.85em]
+           text-emerald-700 dark:border-zinc-700 dark:bg-zinc-800 dark:text-emerald-400;
+  }
 
   /* Callout box for asides/notes within a section */
   .note-box {
