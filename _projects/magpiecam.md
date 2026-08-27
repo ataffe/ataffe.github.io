@@ -76,21 +76,23 @@ related_repos:
     url: "https://github.com/ataffe/MagPieCamEdgeAgent"
     description: "The Edge Agent that runs on the camera."
 featured: true
-motivation: <strong>I wanted to build a system that is centered around an AI model, and does something useful</strong>. Not just a dataset and a model with performance metrics but a full system in the cloud that works and scales. I also have two cats at home named Zia and Luna! They are 3 years old and very curious, so I need to keep an eye on them sometimes. Luna for example, has some health problems, and so sometimes I need to track when she is eating or using the bathroom. So I tried setting up a Ring cam near their litter box or food bowls for example. But <strong> I get many notifications for events that are not what I am looking for</strong>. For example, every time a cat or person walks by, I get an event. Additionally my girlfriend and I live in an area that has a decent amount of foot traffic. Similarly we tend to get a lot of notifications that are just people walking by. Ring now has unusual event detection but the user doesn't determine what is unusual. So I built MagPieCam.  
-intro: MagPieCam lets users choose what they want to be notified about using rules they specify in natural language. The camera uses an object tracker (<a href="https://github.com/FoundationVision/ByteTrack">ByteTrack</a>) to recognize moving objects and then sends an images to the rules engine (Gemma4 / Gemini API) that decides if the image should trigger a push-notification. The camera itself is built using a Raspberry Pi Zero 2W and the Raspberry Pi AI Camera. On this page I will walk through the architecture of the system and some of the more interesting parts of building it.
+intro: MagPieCam lets users choose what they want to be notified about using rules they create in natural language. The camera uses an object tracker (<a href="https://github.com/FoundationVision/ByteTrack">ByteTrack</a>) to recognize moving objects and then sends an images to the rules engine (Gemma4 / Gemini API), that decides if the image should trigger a push-notification. The camera itself is built using a Raspberry Pi Zero 2W and the Raspberry Pi AI Camera. On this page I will walk through the architecture of the system and some of the key parts of building it.
+
+motivation: <strong>I wanted to build a system that is centered around an AI model, does something useful, and is built for production</strong>. Not just a dataset and a model with performance metrics but a full system in the cloud that works and scales. I also have two cats at home named Zia and Luna! They are 3 years old and very curious, so I need to keep an eye on them sometimes. Luna for example, has some health problems, and so sometimes I need to track when she is eating or using the bathroom. So I tried setting up a Ring cam near their litter box or food bowls for example. But <strong> I get many notifications for events that are not what I am looking for</strong>. For example, every time a cat or person walks by, I get an event. Additionally my girlfriend and I live in an area that has a decent amount of foot traffic. Similarly we tend to get a lot of notifications that are just people walking by. Ring now has unusual event detection but the user doesn't determine what is unusual. So I built MagPieCam.  
+
 note1: I used <a href="https://code.claude.com/docs/en/overview">Claude Code</a> throughout this project. I wanted to build a scalable, reliable AI system end to end, but you can't be an expert in everything, so I focused on the AI Engineer, the REST API and AWS with Terraform, and delegated the majority of the iOS and Edge development to Claude code. I talk more about my workflow below.
 image1: "/assets/images/projects/magpie/zia_luna.jpg"
 claude_workflow:
-  intro: When I started this project, I wanted to solve a problem and learn about AI Engineering by building a backend system that used an AI model. However, I wanted to build the backend in the context of a fully working system. If I built just the backend, it would be very hard to conceptualize some of the interesting problems that I encountered while connecting the iOS app to the edge device, like the streaming lifecycle for example. So I wrote most the MagPieCam-Core services myself and delegated the a lot of the iOS app development and the edge agent development to Claude Code. When designing the system, I would come up with a design myself and have Claude play systems architect and review the design for anything I was missing or help me understand how engineering teams typically solve the problem.
+  intro: When I started this project, I wanted to solve a problem and learn about AI Engineering by building a backend system that used an AI model as if it were in production. However, I wanted to build the backend in the context of a fully working system. If I built just the backend, it would be very hard to conceptualize some of the interesting problems that I encountered while connecting the iOS app to the edge device, like the streaming lifecycle for example. So I wrote most the MagPieCam-Core services myself and delegated the a lot of the iOS app development and the edge agent development to Claude Code. When designing the system, I would come up with a design myself and have Claude play systems architect and review the design for anything I was missing or help me understand how engineering teams typically solve the problem.
   practices:
     - title: "Backend by hand"
       description: "I usually started with a problem I want to solve, then would design a feature to solve it and then review it with Claude. When reviewing with Claude, I would usually ask clarifying questions and how engineering team at existing companies have solved the problem."
     - title: "Delegated iOS & Edge Agent"
-      description: " When developing the iOS app, I would usually add a new REST endpoint, empty view, or view model and describe to Claude what I wanted to implement. Then either I would teak the view by hand or I would ask Claude tweak the design (mostly Claude) until it looked good."
+      description: " When developing the iOS app, I would usually add a new REST endpoint, empty view, or view model and describe to Claude what I wanted to implement. Then either I would teak the view by hand or I would ask Claude tweak the design (mostly Claude) until it looked good. </br></br>When building the edge agent I deployed YOLOv11 to the Raspberry Pi AI Camera and implemented the tracking algorithm in Python. Then I had Claude port it to C++ and then I reviewed it and made tweaks. Then I went feature by feature with claude writing the code for features like the FFMPEG streamer."
   claude_image: "/assets/images/projects/magpie/claude-code-128px.png"
   takeaway: "I used to be very skeptical about delegating work to agents like Claude Code, but it really accelerated the development of this project. So far I have noticed that <strong>most mistakes come from miscommunications</strong>, so I try to be as specific as possible when working with Claude even if I don't know how to do what I want. Developing the app is a great case study of this. </br></br>I started by learning Swift using Stanford's <a href='https://cs193p.stanford.edu/'>cs193p course</a>. Then I started building the app. At first I built the views myself, but I am new to UI design and as views got more complex it was taking too much of my time. Swift has a vast library of tools for building views, so to save time I focused learning from other UIs so I could describe what I want and let Claude focus on how to implement that using best practices."
 architecture:
-  overview: "I think the most digestible way to look at the system is by looking at it feature by feature in the order that a user might encounter each feature."
+  overview: "I think the most digestible way to look at the system is by looking at it feature by feature in the order that a user might encounter each feature. (Click on any image on the right to enlarge it)"
   section1:
     title: "Creating an Account"
     content: "User account are pretty straightforward and implemented using Django's User model with the simple JWT plugin. When a user creates an account, the app receives a short lived access token and a refresh token that can be used to retrieve a new access token. All other endpoints besides the device provision ones require JWTs."
@@ -132,7 +134,7 @@ architecture:
           Once the camera has been registered the app can scan the QR code which calls <code>cameras/claim</code> and sets the claimed.
     images:
       - src: "/assets/diagrams/magpie/DeviceProvisioningSeqDiagram.png"
-        caption: "The device provisioning sequence"
+        caption: "The device provisioning sequence</br>(click to see full view)"
       - src: "/assets/images/projects/magpie/ios-qrcode.PNG"
         caption: "Add a camera via QR code"
     image_columns: 2
@@ -142,6 +144,10 @@ architecture:
     
     
     Each track has a it's own exponential backoff, so that you don't get bursts of images of the same thing uploaded to S3. I used this approach because an object may enter the view of the camera but it may take a while for it to do something that triggers a notification. For example my cat can walk into view but not eat for 30 seconds. Each time an object is detected the camera requests a short-lived (currently good for 5 minutes) presigned url from <code>/cameras/presigned_upload</code> in order to upload the image to S3. Using a presigned url enable the camera to upload images without permanently storing AWS credentials. The <code>image_detection</code> S3 bucket then enqueues a message in SQS on upload events. (I am going to write an article that goes into more depth on the camera soon)"
+
+    images:
+      - src: "https://raw.githubusercontent.com/ataffe/MagPieCam-Assets/main/system_diagram/ImageDetectionDiagram.png"
+        caption: The image detection pipeline.
   section4:
     title: "Creating & Evaluating Rules"
     subsections:
@@ -229,8 +235,8 @@ architecture:
         </br>
         If a verdict is yes, a push notification is sent for the whole bundle along with a link to a preview image."
 
-      - title: "Hosting a model vs Using an API"
-        content: "Coming Soon"
+      # - title: "Hosting a model vs Using an API"
+      #   content: "Coming Soon"
         
     
     images:
@@ -238,14 +244,30 @@ architecture:
         caption: "Example rules in the app."
       - src: "/assets/images/projects/magpie/ios-add-rule.PNG"
         caption: "Example of adding a rule."
-      - src: "https://raw.githubusercontent.com/ataffe/MagPieCam-Assets/main/system_diagram/ImageDetectionDiagram.png"
-        caption: The image detection pipeline.
     image_columns: 2
   section5:
-    title: "Notifications"
-    content: "coming soon"
-  section6:
     title: "Streaming Live Video"
-    content: "coming soon"
+    subsections:
+      - title: "Starting 🎬"
+        content: "I was surprised when developing this feature because at first, I thought streaming the video would be the most challenging part to build. But instead, <strong>starting and stopping streaming on-demand was actually the trickiest part</strong>. The camera always initiates connections with the backend because it sits in the user's wifi network. So I needed some way for the camera to know when to start / stop streaming. Otherwise, if the camera were streaming all the time that would waste bandwidth and compute. So I used long polling. Here is how it works from opposite ends.
+        </br>
+        </br>
+        <u>The Camera</u>
+        </br>
+        The camera long polls the <code>cameras/streaming/command/</code> end point for 30 seconds at a time. If the command returned is none, or the camera is streaming and the command is start, the camera just calls the endpoint again. If the start command is received that camera starts a new process that consumes frame bytes from a buffer and feeds them to FFMPEG. FFMPEG then streams the frames to the MediaMTX server using RTSP including a JWT in the request. In the background the camera continues to long poll for new commands. If the stop command is received it signals the streamer process to end, and goes back to polling.
+        </br>
+        </br>
+        <u>The iOS App</u>
+        </br>
+        When the user clicks on the live video view the iOS app starts by calling the <code>cameras/uuid:public_camera_id/streaming/start/</code> endpoint to signal the backend to publish a start command for the camera. Next the app starts reading the video stream from the MediaMTX via WebRTC / WHEP using a JWT for authentication. MediaMTX passes the token to the <code>cameras/mediamtx/auth/</code> in order to authenticate the stream. If the backend returns 200 OK then MediaMTX starts the stream.
+       "
+      - title: "Stopping 🛑"
+        content: "To stop a video stream, the system uses Celery Beat to periodically run tasks that check the active streams. For each stream with an active publisher it checks if there are any readers for that stream. If there are no readers then it publishes the stop command, otherwise it does nothing. The channel subscriber then gets that message and the camera returns from long polling with the stop command. Once the camera returns from the long poll with the stop command it ends the RTSP stream."
+    images:
+      - src: "https://raw.githubusercontent.com/ataffe/MagPieCam-Assets/main/system_diagram/VideoStreamingDiagram.png"
+        caption: "The video streaming and control diagram."
+      - src: "https://raw.githubusercontent.com/ataffe/MagPieCam-Assets/main/system_diagram/VideoStreamingSeqDiagram.png"
+        caption: "The sequence diagram for on-demand streaming.</br>(click to see full view)"
+    image_columns: 1
 
 ---

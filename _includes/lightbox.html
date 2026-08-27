@@ -1,0 +1,121 @@
+{%- comment -%}
+  Full-screen image viewer. Any element with class `js-zoom` that wraps an <img>
+  becomes a trigger: clicking it shows that image full screen with an 'x' to close.
+  Captions are reused from the trigger's sibling <figcaption>, if it has one.
+{%- endcomment -%}
+<div id="lightbox" style="display: none"
+    class="fixed inset-0 z-[60] items-center justify-center bg-zinc-950/90 p-4 opacity-0 backdrop-blur-sm transition-opacity duration-150"
+    role="dialog" aria-modal="true" aria-label="Enlarged image">
+    <figure class="flex max-h-full max-w-full flex-col items-center gap-3">
+        <div class="relative min-h-0">
+            <img id="lightbox-img" src="" alt=""
+                class="max-h-[85vh] max-w-[92vw] rounded-lg object-contain shadow-2xl">
+            <button id="lightbox-close" type="button"
+                class="absolute right-2 top-2 flex h-10 w-10 items-center justify-center rounded-full bg-zinc-900/70 text-lg text-white ring-1 ring-white/25 transition hover:bg-zinc-800 hover:text-emerald-400 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400"
+                aria-label="Close enlarged image">
+                <i class="fas fa-xmark"></i>
+            </button>
+        </div>
+        <figcaption id="lightbox-caption" class="max-w-2xl text-center text-sm text-zinc-300"></figcaption>
+    </figure>
+</div>
+
+<script>
+(() => {
+    const overlay = document.getElementById('lightbox');
+    const image = document.getElementById('lightbox-img');
+    const caption = document.getElementById('lightbox-caption');
+    const closeButton = document.getElementById('lightbox-close');
+    const triggers = document.querySelectorAll('.js-zoom');
+    if (!overlay || triggers.length === 0) return;
+
+    let lastFocused = null;
+    let fadeTimer = null;
+    let openedAt = 0;
+
+    const isOpen = () => overlay.style.display === 'flex';
+
+    // Scale the image up to fill the viewport, but not past MAX_UPSCALE: several of
+    // the diagrams are small PNGs and blowing them up further just looks mushy.
+    const MAX_UPSCALE = 2;
+    const fitImage = () => {
+        const { naturalWidth: w, naturalHeight: h } = image;
+        if (!w || !h) return;
+        const scale = Math.min(window.innerWidth * 0.92 / w, window.innerHeight * 0.85 / h, MAX_UPSCALE);
+        image.style.width = Math.round(w * scale) + 'px';
+    };
+    image.addEventListener('load', fitImage);
+    window.addEventListener('resize', () => {
+        if (isOpen()) fitImage();
+    });
+
+    const open = (trigger) => {
+        const source = trigger.querySelector('img');
+        if (!source) return;
+
+        image.style.width = '';
+        image.src = source.currentSrc || source.src;
+        image.alt = source.alt;
+        if (image.complete) fitImage();
+
+        // Reuse the thumbnail's caption so the two never drift apart.
+        const figcaption = trigger.closest('figure')?.querySelector('figcaption');
+        caption.innerHTML = figcaption ? figcaption.innerHTML : '';
+        caption.style.display = figcaption ? 'block' : 'none';
+
+        lastFocused = document.activeElement;
+        openedAt = Date.now();
+        clearTimeout(fadeTimer);
+        // `display` is set inline rather than via a `hidden` class: Font Awesome's
+        // unlayered CSS outranks Tailwind's layered display utilities (see navigation.html).
+        overlay.style.display = 'flex';
+        // Force a reflow so the browser sees the element as displayed before opacity
+        // changes, which is what makes the fade run. Setting opacity synchronously
+        // (rather than in a rAF callback) means a dropped frame can never leave an
+        // invisible overlay sitting on top of the page.
+        void overlay.offsetWidth;
+        overlay.style.opacity = '1';
+        document.body.style.overflow = 'hidden';
+        closeButton.focus();
+    };
+
+    const close = () => {
+        overlay.style.opacity = '0';
+        document.body.style.overflow = '';
+        fadeTimer = setTimeout(() => {
+            overlay.style.display = 'none';
+            image.src = '';
+        }, 150);
+        closeButton.blur();
+        if (lastFocused && lastFocused.isConnected) lastFocused.focus();
+    };
+
+    triggers.forEach(trigger => trigger.addEventListener('click', () => open(trigger)));
+    closeButton.addEventListener('click', close);
+
+    // Clicking the backdrop closes; clicking the image itself does not.
+    overlay.addEventListener('click', event => {
+        if (event.target === overlay) close();
+    });
+
+    // Scrolling dismisses rather than doing nothing: the page is briefly locked while
+    // the viewer is open, so a dead scroll gesture would just read as a frozen page.
+    // The grace period ignores trackpad momentum left over from the scroll before the click.
+    const dismissOnScroll = () => {
+        if (isOpen() && Date.now() - openedAt > 250) close();
+    };
+    window.addEventListener('wheel', dismissOnScroll, { passive: true });
+    window.addEventListener('touchmove', dismissOnScroll, { passive: true });
+
+    document.addEventListener('keydown', event => {
+        if (!isOpen()) return;
+        if (event.key === 'Escape') {
+            close();
+        } else if (event.key === 'Tab') {
+            // The close button is the only control in the dialog, so keep focus on it.
+            event.preventDefault();
+            closeButton.focus();
+        }
+    });
+})();
+</script>

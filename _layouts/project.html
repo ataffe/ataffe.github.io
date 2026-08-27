@@ -250,12 +250,17 @@ layout: default
                                 {% for img in row_images %}
                                 {% if img.src %}{% assign img_src = img.src %}{% assign img_caption = img.caption | default: '' %}{% else %}{% assign img_src = img %}{% assign img_caption = '' %}{% endif %}
                                 <figure class="flex max-w-full shrink-0 flex-col gap-2">
-                                    <div
-                                        class="h-80 max-w-full overflow-hidden rounded-xl border border-zinc-200 bg-zinc-100 dark:border-zinc-800 dark:bg-zinc-800">
+                                    <button type="button"
+                                        class="js-zoom group relative block h-80 max-w-full cursor-zoom-in overflow-hidden rounded-xl border border-zinc-200 bg-zinc-100 p-0 transition hover:border-emerald-500/50 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 dark:border-zinc-800 dark:bg-zinc-800"
+                                        aria-label="Enlarge image{% if img_caption != '' %}: {{ img_caption | strip_html | strip | escape }}{% endif %}">
                                         <img src="{{ img_src | strip | relative_url }}"
                                             alt="{% if img_caption != '' %}{{ img_caption | strip_html }}{% else %}{{ page.title }}{% endif %}"
                                             class="h-full w-auto object-contain">
-                                    </div>
+                                        <span
+                                            class="pointer-events-none absolute right-2 top-2 flex h-7 w-7 items-center justify-center rounded-md bg-zinc-900/70 text-xs text-white opacity-0 transition-opacity group-hover:opacity-100 group-focus-visible:opacity-100">
+                                            <i class="fas fa-up-right-and-down-left-from-center"></i>
+                                        </span>
+                                    </button>
                                     {% if img_caption != '' %}
                                     <figcaption class="prose-body w-0 min-w-full text-center text-xs">{{ img_caption }}
                                     </figcaption>
@@ -273,6 +278,7 @@ layout: default
             {% endfor %}
         </div>
     </section>
+    {% include lightbox.html %}
     {% endif %}
 
     <div class="prose-body mt-10 max-w-3xl space-y-4">
