@@ -1,7 +1,7 @@
 ---
 layout: default
 ---
-<div class="mx-auto max-w-7xl px-6 py-12 sm:py-16">
+<div class="w-full px-8 py-12 sm:px-16 sm:py-16 lg:px-24 xl:px-32">
 <article>
     <a href="{{ '/projects/' | relative_url }}"
         class="group inline-flex items-center gap-1.5 text-sm font-medium text-emerald-600 dark:text-emerald-400">
@@ -12,7 +12,7 @@ layout: default
         <p class="section-kicker">// Project</p>
         <h1 class="text-3xl font-bold text-zinc-900 sm:text-4xl dark:text-zinc-50">{{ page.title }}</h1>
         {% if page.tagline %}
-        <p class="prose-body mt-2 max-w-2xl text-lg">{{ page.tagline }}</p>
+        <p class="prose-body mt-2 text-lg">{{ page.tagline }}</p>
         {% endif %}
 
         {% if page.technologies %}
@@ -56,7 +56,7 @@ layout: default
       section it points at is rendered below, so a project never gets a dead link.
     {%- endcomment -%}
     {%- capture toc_raw -%}
-        {%- if page.intro %}introduction::Introduction||{% endif -%}
+        {%- if page.intro %}introduction::What is MagPieCam||{% endif -%}
         {%- if page.motivation %}why-i-built-this::Why I Built This||{% endif -%}
         {%- if page.features %}key-features::Key Features||{% endif -%}
         {%- if page.demo_video %}demo::Demo||{% endif -%}
@@ -89,27 +89,8 @@ layout: default
 
     {% if page.intro %}
     <section id="introduction" class="mt-12">
-        <h2 class="section-title mb-4">Introduction</h2>
-        <p class="prose-body max-w-3xl space-y-2.5 whitespace-pre-line">{{ page.intro }}</p>
-        {% if page.note1 %}
-        <div class="note-box mt-6 max-w-3xl">
-            <i class="fas fa-circle-info mt-0.5 text-emerald-500 dark:text-emerald-400"></i>
-            <p class="prose-body whitespace-pre-line text-sm"><strong
-                    class="text-zinc-900 dark:text-zinc-50">Note:</strong> {{ page.note1
-                }}</p>
-        </div>
-        {% endif %}
-    </section>
-    {% endif %}
-
-    {% if page.motivation%}
-    <section id="why-i-built-this" class="mt-12">
-        <h2 class="section-title mb-4">Why I Built This</h2>
-        <div class="flex flex-col gap-6 sm:flex-row sm:items-start">
-            <p class="prose-body max-w-3xl space-y-2.5 whitespace-pre-line">{{ page.motivation }}</p>
-            <img src="{{ page.image1 | relative_url }}" alt="{{ page.title }}"
-                class="h-48 w-48 shrink-0 rounded-xl object-cover">
-        </div>
+        <h2 class="section-title mb-4">What is MagPieCam</h2>
+        <p class="prose-body space-y-2.5 whitespace-pre-line">{{ page.intro }}</p>
     </section>
     {% endif %}
 
@@ -161,9 +142,29 @@ layout: default
     </section>
     {% endif %}
 
+    {% if page.motivation%}
+    <section id="why-i-built-this" class="mt-12">
+        <h2 class="section-title mb-4">Why I Built This</h2>
+        <div class="flex flex-col gap-6 sm:flex-row sm:items-start">
+            <p class="prose-body space-y-2.5 whitespace-pre-line">{{ page.motivation }}</p>
+            <img src="{{ page.image1 | relative_url }}" alt="{{ page.title }}"
+                class="h-48 w-48 shrink-0 rounded-xl object-cover">
+        </div>
+    </section>
+    {% endif %}
+
+    {% if page.note1 %}
+    <div class="note-box mt-6">
+        <i class="fas fa-circle-info mt-0.5 text-emerald-500 dark:text-emerald-400"></i>
+        <p class="prose-body whitespace-pre-line text-sm"><strong
+                class="text-zinc-900 dark:text-zinc-50">Note:</strong> {{ page.note1
+            }}</p>
+    </div>
+    {% endif %}
+
     {% if page.architecture_image %}
-    <section id="system-architecture" class="relative left-1/2 right-1/2 -mx-[50vw] mt-12 w-screen px-6">
-        <div class="mx-auto max-w-7xl overflow-hidden rounded-xl border border-zinc-200 dark:border-zinc-800">
+    <section id="system-architecture" class="mt-12">
+        <div class="overflow-hidden rounded-xl border border-zinc-200 dark:border-zinc-800">
             <h2 class="section-title mb-4 p-5">System Architecture</h2>
             <img src="{{ page.architecture_image }}" alt="{{ page.title }} system diagram" class="w-full">
         </div>
@@ -203,7 +204,7 @@ layout: default
     {% endif %}
 
     {% if page.architecture %}
-    <section id="architecture-overview" class="mt-12">
+    <section id="architecture-overview" class="mx-auto mt-12 max-w-7xl">
         <h2 class="section-title mb-4">Architecture Overview</h2>
         {% if page.architecture.overview %}
         <p class="prose-body max-w-3xl space-y-2.5 whitespace-pre-line">{{ page.architecture.overview }}</p>
@@ -281,7 +282,7 @@ layout: default
     {% include lightbox.html %}
     {% endif %}
 
-    <div class="prose-body mt-10 max-w-3xl space-y-4">
+    <div class="prose-body mt-10 space-y-4">
         {{ content }}
     </div>
 
@@ -295,7 +296,7 @@ layout: default
             {% endif %}
         </h2>
         {% if page.claude_workflow.intro %}
-        <p class="prose-body max-w-3xl space-y-2.5 whitespace-pre-line">{{ page.claude_workflow.intro }}</p>
+        <p class="prose-body space-y-2.5 whitespace-pre-line">{{ page.claude_workflow.intro }}</p>
         {% endif %}
 
         {% if page.claude_workflow.practices %}
@@ -310,7 +311,7 @@ layout: default
         {% endif %}
 
         {% if page.claude_workflow.takeaway %}
-        <div class="note-box mt-6 max-w-3xl">
+        <div class="note-box mt-6">
             <i class="fas fa-lightbulb mt-0.5 text-emerald-500 dark:text-emerald-400"></i>
             <p class="prose-body whitespace-pre-line text-sm"><strong
                     class="text-zinc-900 dark:text-zinc-50">Takeaway:</strong> {{
@@ -323,7 +324,7 @@ layout: default
     {% if page.related_repos %}
     <section id="related-repositories" class="mt-12">
         <h2 class="section-title mb-4">Related Repositories</h2>
-        <div class="grid max-w-5xl gap-3 sm:grid-cols-2 lg:grid-cols-3">
+        <div class="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
             {% for repo in page.related_repos %}
             <a href="{{ repo.url }}" target="_blank" rel="noopener" class="card card-hover flex flex-col gap-0.5 p-3">
                 <span class="text-sm font-semibold text-zinc-900 dark:text-zinc-50">

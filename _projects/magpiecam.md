@@ -22,8 +22,8 @@ github_url: "https://github.com/ataffe/MagPieCam-Core"
 api_docs_url: "/projects/magpiecam/api-docs/"
 features:
   - "Users can add new cameras to their account seamlessly via a qr code"
-  - "View the live video"
-  - "Users can add rules using natural language for notifications"
+  - "Users can stream live video from the camera at 30fps"
+  - "Users can add rules for smart notifications using natural language (Tell me when my cat uses the bathroom)"
   - "Each notifications includes a 20 second video clip that includes the 10 seconds leading up to the event."
 ios_screenshots:
   - "/assets/images/projects/magpie/ios-qrcode.PNG"
@@ -50,9 +50,9 @@ architecture_features:
       - "Redis"
       - "AWS (SQS, S3, Fargate)"
     features:
-      - "Django REST frameworks handles authentication and CRUD for users, cameras, rules, and notifications via a REST API secured with JWTs."
+      - "Django REST frameworks handles authentication and CRUD via a REST API secured with JWTs."
       - "Models are stored in a Postgres DB and use UUIDv7 ids as primary keys for sortable, opaque, index-friendly IDs"
-      - "The event processor (a Django app) consumes SQS messages, and passes the payload to a Celery Worker"
+      - "The event processor consumes image detection SQS messages, and queues tasks that are picked up by Celery workers"
       - "Celery workers evaluate images against user rules using the rules engine and triggers notifications."
       - "Cameras retrieve their own JWT based on a revokable device id created from the Raspberry Pi cpu serial number and a UUID"
       - "The core services and DB's run in AWS using Fargate, RDS PostgreSQL, and ElastiCache Redis"
@@ -63,8 +63,9 @@ architecture_features:
       - "Yolo"
     features:
       - "Tracks objects using ByteTrack+Yolo and sends images to the backend with a per track exponential backoff"
-      - "Streams video when a user connects to the MediaMTX server, by long polling a REST endpoint."
+      - "Streams video at 30fps when a user connects to the MediaMTX server, by long polling a REST endpoint."
       - "Presigned S3 URLs let edge cameras upload images & video clips directly to storage (S3)"
+      - "The edge agent runs on a Raspberry Pi Zero 2w with 36% CPU utilization."
 related_repos:
   - name: "MagPieCam-Core"
     url: "https://github.com/ataffe/MagPieCam-Core"
@@ -76,11 +77,11 @@ related_repos:
     url: "https://github.com/ataffe/MagPieCamEdgeAgent"
     description: "The Edge Agent that runs on the camera."
 featured: true
-intro: MagPieCam lets users choose what they want to be notified about using rules they create in natural language. The camera uses an object tracker (<a href="https://github.com/FoundationVision/ByteTrack">ByteTrack</a>) to recognize moving objects and then sends an images to the rules engine (Gemma4 / Gemini API), that decides if the image should trigger a push-notification. The camera itself is built using a Raspberry Pi Zero 2W and the Raspberry Pi AI Camera. On this page I will walk through the architecture of the system and some of the key parts of building it.
+intro: MagPieCam is a smart camera that lets users set smart notifications using rules they create in natural language. A rule can be "Tell me when a package is delivered" for example. The camera uses an object tracker (<a href="https://github.com/FoundationVision/ByteTrack" target="_blank">ByteTrack</a>) to recognize moving objects and then sends images to the rules engine which uses the Gemini API to decides if the image should trigger a push-notification. The camera itself is built using a Raspberry Pi Zero 2W and the <a href ="https://www.raspberrypi.com/products/ai-camera/" target="_blank">Raspberry Pi AI Camera</a>. On this page I will walk through the architecture of the system and some of the key parts of building it.
 
 motivation: <strong>I wanted to build a system that is centered around an AI model, does something useful, and is built for production</strong>. Not just a dataset and a model with performance metrics but a full system in the cloud that works and scales. I also have two cats at home named Zia and Luna! They are 3 years old and very curious, so I need to keep an eye on them sometimes. Luna for example, has some health problems, and so sometimes I need to track when she is eating or using the bathroom. So I tried setting up a Ring cam near their litter box or food bowls for example. But <strong> I get many notifications for events that are not what I am looking for</strong>. For example, every time a cat or person walks by, I get an event. Additionally my girlfriend and I live in an area that has a decent amount of foot traffic. Similarly we tend to get a lot of notifications that are just people walking by. Ring now has unusual event detection but the user doesn't determine what is unusual. So I built MagPieCam.  
 
-note1: I used <a href="https://code.claude.com/docs/en/overview">Claude Code</a> throughout this project. I wanted to build a scalable, reliable AI system end to end, but you can't be an expert in everything, so I focused on the AI Engineer, the REST API and AWS with Terraform, and delegated the majority of the iOS and Edge development to Claude code. I talk more about my workflow below.
+note1: I used <a href="https://code.claude.com/docs/en/overview" target="_blank">Claude Code</a> throughout this project. I wanted to build a scalable, reliable AI system end to end, but you can't be an expert in everything, so I focused on the AI Engineering, the REST API and AWS with Terraform, and delegated the majority of the iOS and Edge development to Claude code. I talk more about my workflow below.
 image1: "/assets/images/projects/magpie/zia_luna.jpg"
 claude_workflow:
   intro: When I started this project, I wanted to solve a problem and learn about AI Engineering by building a backend system that used an AI model as if it were in production. However, I wanted to build the backend in the context of a fully working system. If I built just the backend, it would be very hard to conceptualize some of the interesting problems that I encountered while connecting the iOS app to the edge device, like the streaming lifecycle for example. So I wrote most the MagPieCam-Core services myself and delegated the a lot of the iOS app development and the edge agent development to Claude Code. When designing the system, I would come up with a design myself and have Claude play systems architect and review the design for anything I was missing or help me understand how engineering teams typically solve the problem.
@@ -90,7 +91,7 @@ claude_workflow:
     - title: "Delegated iOS & Edge Agent"
       description: " When developing the iOS app, I would usually add a new REST endpoint, empty view, or view model and describe to Claude what I wanted to implement. Then either I would teak the view by hand or I would ask Claude tweak the design (mostly Claude) until it looked good. </br></br>When building the edge agent I deployed YOLOv11 to the Raspberry Pi AI Camera and implemented the tracking algorithm in Python. Then I had Claude port it to C++ and then I reviewed it and made tweaks. Then I went feature by feature with claude writing the code for features like the FFMPEG streamer."
   claude_image: "/assets/images/projects/magpie/claude-code-128px.png"
-  takeaway: "I used to be very skeptical about delegating work to agents like Claude Code, but it really accelerated the development of this project. So far I have noticed that <strong>most mistakes come from miscommunications</strong>, so I try to be as specific as possible when working with Claude even if I don't know how to do what I want. Developing the app is a great case study of this. </br></br>I started by learning Swift using Stanford's <a href='https://cs193p.stanford.edu/'>cs193p course</a>. Then I started building the app. At first I built the views myself, but I am new to UI design and as views got more complex it was taking too much of my time. Swift has a vast library of tools for building views, so to save time I focused learning from other UIs so I could describe what I want and let Claude focus on how to implement that using best practices."
+  takeaway: "I used to be very skeptical about delegating work to agents like Claude Code, but it really accelerated the development of this project. So far I have noticed that <strong>most mistakes come from miscommunications</strong>, so I try to be as specific as possible when working with Claude even if I don't know how to do what I want. Developing the app is a great case study of this. </br></br>I started by learning Swift using Stanford's <a href='https://cs193p.stanford.edu/' target='_blank'>cs193p course</a>. Then I started building the app. At first I built the views myself, but I am new to UI design and as views got more complex it was taking too much of my time. Swift has a vast library of tools for building views, so to save time I focused learning from other UIs so I could describe what I want and let Claude focus on how to implement that using best practices."
 architecture:
   overview: "I think the most digestible way to look at the system is by looking at it feature by feature in the order that a user might encounter each feature. (Click on any image on the right to enlarge it)"
   section1:

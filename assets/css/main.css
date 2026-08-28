@@ -752,6 +752,9 @@
   .px-6 {
     padding-inline: calc(var(--spacing) * 6);
   }
+  .px-8 {
+    padding-inline: calc(var(--spacing) * 8);
+  }
   .py-1 {
     padding-block: var(--spacing);
   }
@@ -1070,6 +1073,12 @@
     .sm\:gap-x-5 {
       column-gap: calc(var(--spacing) * 5);
     }
+    .sm\:px-10 {
+      padding-inline: calc(var(--spacing) * 10);
+    }
+    .sm\:px-16 {
+      padding-inline: calc(var(--spacing) * 16);
+    }
     .sm\:py-16 {
       padding-block: calc(var(--spacing) * 16);
     }
@@ -1130,6 +1139,14 @@
     }
     .lg\:self-start {
       align-self: flex-start;
+    }
+    .lg\:px-24 {
+      padding-inline: calc(var(--spacing) * 24);
+    }
+  }
+  @media (width >= 80rem) {
+    .xl\:px-32 {
+      padding-inline: calc(var(--spacing) * 32);
     }
   }
   .dark\:border-zinc-800:where(.dark, .dark *) {
