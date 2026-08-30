@@ -4,16 +4,14 @@ title: "MagPieCam"
 demo_video: "/assets/videos/magpiecam/demo.mp4"
 demo_video_poster: "/assets/videos/magpiecam/demo-poster.jpg"
 demo_video_caption: "Adding a camera by QR code, writing a rule in plain English, and receiving the notification it triggers."
-tagline: 'A smart camera system that enables users to define the notifications they want in plain English using the <a href="https://deepmind.google/models/gemma/gemma-4/">Gemma4</a> / <a href="https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite">Gemini 3.1 Flash-Lite</a> and <a href="https://docs.ultralytics.com/tasks/detect">Yolo</a>.'
+tagline: 'A smart camera system that enables users to create smart notifications in plain English using object-tracking and zero-shot classification with a vision language model.'
 image: "/assets/images/projects/magpie/magpicam.jpg"
 technologies:
   - "Python"
   - "Django Rest Framework"
-  - "ByteTrack"
-  - "Yolo"
-  - "Gemma 4"
-  - "Gemini 3.1 Flash-Lite"
-  - Pydantic
+  - "Multi-Object Tracking"
+  - "Vision Language Model"
+  - "Pydantic"
   - "PostgreSQL"
   - "Terraform"
   - "RESTful API"
@@ -23,13 +21,14 @@ api_docs_url: "/projects/magpiecam/api-docs/"
 features:
   - "Users can add new cameras to their account seamlessly via a qr code"
   - "Users can stream live video from the camera at 30fps"
-  - "Users can add rules for smart notifications using natural language (Tell me when my cat uses the bathroom)"
+  - "Users can add rules for smart notifications using natural language"
   - "Each notifications includes a 20 second video clip that includes the 10 seconds leading up to the event."
 ios_screenshots:
   - "/assets/images/projects/magpie/ios-qrcode.PNG"
   - "/assets/images/projects/magpie/ios-camera-detail.PNG"
   - "/assets/images/projects/magpie/ios-rules.PNG"
   - "/assets/images/projects/magpie/ios-notifications.PNG"
+
 architecture_image: "https://raw.githubusercontent.com/ataffe/MagPieCam-Assets/main/system_diagram/magpie-cam-system-diagram.png"
 architecture_features:
   ios app: 
@@ -66,22 +65,13 @@ architecture_features:
       - "Streams video at 30fps when a user connects to the MediaMTX server, by long polling a REST endpoint."
       - "Presigned S3 URLs let edge cameras upload images & video clips directly to storage (S3)"
       - "The edge agent runs on a Raspberry Pi Zero 2w with 36% CPU utilization."
-related_repos:
-  - name: "MagPieCam-Core"
-    url: "https://github.com/ataffe/MagPieCam-Core"
-    description: "The Django backend and celery workers."
-  - name: "MagPieCam-iOS"
-    url: "https://github.com/ataffe/MagPieCam-iOS"
-    description: "The iOS app"
-  - name: "MagPieCam-EdgeAgent"
-    url: "https://github.com/ataffe/MagPieCamEdgeAgent"
-    description: "The Edge Agent that runs on the camera."
-featured: true
-intro: MagPieCam is a smart camera that lets users set smart notifications using rules they create in natural language. A rule can be "Tell me when a package is delivered" for example. The camera uses an object tracker (<a href="https://github.com/FoundationVision/ByteTrack" target="_blank">ByteTrack</a>) to recognize moving objects and then sends images to the rules engine which uses the Gemini API to decides if the image should trigger a push-notification. The camera itself is built using a Raspberry Pi Zero 2W and the <a href ="https://www.raspberrypi.com/products/ai-camera/" target="_blank">Raspberry Pi AI Camera</a>. On this page I will walk through the architecture of the system and some of the key parts of building it.
 
-motivation: <strong>I wanted to build a system that is centered around an AI model, does something useful, and is built for production</strong>. Not just a dataset and a model with performance metrics but a full system in the cloud that works and scales. I also have two cats at home named Zia and Luna! They are 3 years old and very curious, so I need to keep an eye on them sometimes. Luna for example, has some health problems, and so sometimes I need to track when she is eating or using the bathroom. So I tried setting up a Ring cam near their litter box or food bowls for example. But <strong> I get many notifications for events that are not what I am looking for</strong>. For example, every time a cat or person walks by, I get an event. Additionally my girlfriend and I live in an area that has a decent amount of foot traffic. Similarly we tend to get a lot of notifications that are just people walking by. Ring now has unusual event detection but the user doesn't determine what is unusual. So I built MagPieCam.  
+intro: MagPieCam is a smart camera that lets users set smart notifications using rules they create in natural language. A rule can be "Tell me when a package is delivered" for example. The camera uses an object tracker (<a href="https://github.com/FoundationVision/ByteTrack" target="_blank">ByteTrack</a>) to recognize moving objects and then sends images to the rules engine which uses the <a href="https://ai.google.dev/gemini-api/docs">Gemini API</a> to decides if the image should trigger a push-notification to the iOS app. The iOS app is built using swiftUI, and the camera is built using a Raspberry Pi Zero 2W and the <a href ="https://www.raspberrypi.com/products/ai-camera/" target="_blank">Raspberry Pi AI Camera</a>. On this page I will walk through the architecture of the system and some of the key parts of building it.
+
+motivation: <strong>I wanted to build a system that is centered around an AI model, does something useful, and is built for production</strong>. Not just a dataset and a model with performance metrics, but a full system in the cloud that works and scales. I also have two cats at home named Zia and Luna! They are 3 years old and very curious, so I need to keep an eye on them sometimes. Luna for example, has some health problems, and so sometimes I need to track when she is eating or using the bathroom. So I tried setting up a Ring cam near their litter box or food bowls for example. But <strong> I get many notifications for events that are not what I am looking for</strong>. For example, every time a cat or person walks by, I get an event. Additionally my girlfriend and I live in an area that has a decent amount of foot traffic. Similarly we tend to get a lot of notifications that are just people walking by. Ring now has unusual event detection but the user doesn't determine what is unusual. So I built MagPieCam.  
 
 note1: I used <a href="https://code.claude.com/docs/en/overview" target="_blank">Claude Code</a> throughout this project. I wanted to build a scalable, reliable AI system end to end, but you can't be an expert in everything, so I focused on the AI Engineering, the REST API and AWS with Terraform, and delegated the majority of the iOS and Edge development to Claude code. I talk more about my workflow below.
+
 image1: "/assets/images/projects/magpie/zia_luna.jpg"
 claude_workflow:
   intro: When I started this project, I wanted to solve a problem and learn about AI Engineering by building a backend system that used an AI model as if it were in production. However, I wanted to build the backend in the context of a fully working system. If I built just the backend, it would be very hard to conceptualize some of the interesting problems that I encountered while connecting the iOS app to the edge device, like the streaming lifecycle for example. So I wrote most the MagPieCam-Core services myself and delegated the a lot of the iOS app development and the edge agent development to Claude Code. When designing the system, I would come up with a design myself and have Claude play systems architect and review the design for anything I was missing or help me understand how engineering teams typically solve the problem.
@@ -270,5 +260,17 @@ architecture:
       - src: "https://raw.githubusercontent.com/ataffe/MagPieCam-Assets/main/system_diagram/VideoStreamingSeqDiagram.png"
         caption: "The sequence diagram for on-demand streaming.</br>(click to see full view)"
     image_columns: 1
+
+  related_repos:
+  - name: "MagPieCam-Core"
+    url: "https://github.com/ataffe/MagPieCam-Core"
+    description: "The Django backend and celery workers."
+  - name: "MagPieCam-iOS"
+    url: "https://github.com/ataffe/MagPieCam-iOS"
+    description: "The iOS app"
+  - name: "MagPieCam-EdgeAgent"
+    url: "https://github.com/ataffe/MagPieCamEdgeAgent"
+    description: "The Edge Agent that runs on the camera."
+featured: true
 
 ---
