@@ -131,9 +131,17 @@ permalink: /cv/
             <div class="space-y-5">
                 {% if cv.skills.languages %}
                 <div>
-                    <h4 class="mb-2 text-xs font-semibold uppercase tracking-wide text-zinc-400 dark:text-zinc-500">Languages</h4>
+                    <h4 class="mb-2 text-xs font-semibold uppercase tracking-wide text-zinc-400 dark:text-zinc-500">Programming Languages</h4>
                     <div class="flex flex-wrap gap-1.5">
                         {% for skill in cv.skills.languages %}<span class="tag">{{ skill }}</span>{% endfor %}
+                    </div>
+                </div>
+                {% endif %}
+                {% if cv.skills.ml_cv %}
+                <div>
+                    <h4 class="mb-2 text-xs font-semibold uppercase tracking-wide text-zinc-400 dark:text-zinc-500">Computer Vision & Machine Learning</h4>
+                    <div class="flex flex-wrap gap-1.5">
+                        {% for skill in cv.skills.ml_cv %}<span class="tag">{{ skill }}</span>{% endfor %}
                     </div>
                 </div>
                 {% endif %}
@@ -155,17 +163,25 @@ permalink: /cv/
                 {% endif %}
                 {% if cv.skills.cloud_frameworks %}
                 <div>
-                    <h4 class="mb-2 text-xs font-semibold uppercase tracking-wide text-zinc-400 dark:text-zinc-500">Cloud Platforms</h4>
+                    <h4 class="mb-2 text-xs font-semibold uppercase tracking-wide text-zinc-400 dark:text-zinc-500">Cloud</h4>
                     <div class="flex flex-wrap gap-1.5">
                         {% for skill in cv.skills.cloud_frameworks %}<span class="tag">{{ skill }}</span>{% endfor %}
                     </div>
                 </div>
                 {% endif %}
-                {% if cv.skills.tools %}
+                {% if cv.skills.monitoring %}
                 <div>
-                    <h4 class="mb-2 text-xs font-semibold uppercase tracking-wide text-zinc-400 dark:text-zinc-500">Tools &amp; Technologies</h4>
+                    <h4 class="mb-2 text-xs font-semibold uppercase tracking-wide text-zinc-400 dark:text-zinc-500">Observability &amp; & Monitoring</h4>
                     <div class="flex flex-wrap gap-1.5">
-                        {% for skill in cv.skills.tools %}<span class="tag">{{ skill }}</span>{% endfor %}
+                        {% for skill in cv.skills.monitoring %}<span class="tag">{{ skill }}</span>{% endfor %}
+                    </div>
+                </div>
+                {% endif %}
+                {% if cv.skills.ci_cd %}
+                <div>
+                    <h4 class="mb-2 text-xs font-semibold uppercase tracking-wide text-zinc-400 dark:text-zinc-500">CI/CD</h4>
+                    <div class="flex flex-wrap gap-1.5">
+                        {% for skill in cv.skills.ci_cd %}<span class="tag">{{ skill }}</span>{% endfor %}
                     </div>
                 </div>
                 {% endif %}
