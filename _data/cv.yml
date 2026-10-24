@@ -8,8 +8,9 @@ personal_info:
   medium: "https://medium.com/@taffealexander"
 
 summary: |
-  Backend engineer with 5+ years of experience building scalable, reliable distributed backend services at AWS, Axon, PayPal, 
-  and American Express and an M.S. in Computer Science from UC Davis. **Currently looking for full time roles as a Backend Engineer or Computer Vision Engineer**.
+  Backend software engineer with **5+** years of experience building scalable and reliable microservices for enterprise-level companies using **Go** and **Java**.
+  I also thrive in fast-paced environments and I am always learning and developing my skills. Most recently I have been practicing improving my productivity using **Claude Code**. 
+  Seeking a **Backend Software Engineer** role.
 
 education:
   - degree: "Master of Science in Computer Science"
@@ -33,12 +34,13 @@ experience:
     start_date: "Feb 2024"
     end_date: "Aug 2025"
     description: |
-      - Developed the motion-correction stage of a real-time augmented reality surgical guidance system that overlays cancer probability onto tissue during robotic surgery.
-      - Researched modern neural networked based approaches to supervised point tracking in video (Co-Tracker, TAPIR) for motion correction contributing to the related work section of the paper for this project.
+      - Built the motion-correction stage of a real-time augmented reality surgical guidance system using **PyTorch**, **Python**, and **C++** that overlays cancer probability onto tissue during robotic surgery using machine learning.
+      - Researched and evaluated modern neural networked based approaches to supervised point tracking in video (Co-Tracker, TAPIR) for motion correction contributing to the related work section of the paper for this project.
       - Identified failure points in motion correction algorithm by curating a dataset of surgical videos and annotating attributes of the video that affect performance, such as occlusion.
       - Benchmarked the motion correction algorithm's performance by annotating surgical videos with ground truth points creating a quantitative evaluation dataset.
-      - Increased vision pipeline throughput from 20 to 40 FPS on an RTX 4070 Ti by porting the Python inference pipeline to C++ with ONNX Runtime and CUDA, and profiling the C++ code to find bottlenecks.
+      - Increased vision pipeline throughput from **20 FPS to 40 FPS** on an RTX 4070 Ti by porting the Python inference pipeline to C++ with **ONNX Runtime** and CUDA, and profiling the C++ code using timestamps to find bottlenecks.
       - Wrote a [Medium](https://medium.com/@taffealexander/object-detection-with-yolo-and-onnx-runtime-in-c-c8bfb964520b) article detailing the process of porting Python to C++ using ONNX Runtime.
+      - Collaborated with the research group and presented to the Principal Investigator and stakeholders frequently, ensuring on-time delivery for a conference presentation.
     logo_url: "../assets/images/cv/ucdavis-logo.png"
     teck_stack: 
       - "Python"
@@ -53,7 +55,9 @@ experience:
     start_date: "Jun 2024"
     end_date: "Sep 2024"
     description: |
-      - Enabled granular server power analysis for regulatory compliance, monitoring, and debugging hardware across AWS fleets by building a serverless time-series REST API in Python using AWS  Lambda, SQS, and DynamoDB
+      - Built a serverless time-series REST API using Python and AWS Lambda that provides AWS hardware engineers with server power data for monitoring,
+       debugging, and regulatory compliance, saving 2 engineering hours per engineer.
+      - Collaborated with the AWS droplet team to aggregate power data using their APIs, as well as discover and remediate bugs.
     logo_url: "../assets/images/cv/aws-logo-square.jpg"
     teck_stack: 
       - "Python"
@@ -62,20 +66,20 @@ experience:
       - "API Gateway"
       - "SQS"
 
-  # - title: "Teaching Assistant - Introduction to programming with Python"
-  #   company: "The University of California, Davis"
-  #   location: "Davis, California"
-  #   start_date: "Sep 2023"
-  #   end_date: "Jun 2024"
-  #   description: |
-  #     - Taught discussion once a week to a class of 30 students.
-  #     - Hosted in-person and remote office hours 3 times a week.
-  #     - Led bi-weekly 2 hour “stay late and code” homework session with tutors and students.
-  #     - Collaborated with 2 other TAs to grade assignments and exams for 200+ students.
-  #   logo_url: "../assets/images/cv/ucdavis-logo.png"
-  #   teck_stack: 
-  #     - "Python"
-  #     - "Jupyter Notebooks"
+  - title: "Teaching Assistant - Introduction to programming with Python"
+    company: "The University of California, Davis"
+    location: "Davis, California"
+    start_date: "Sep 2023"
+    end_date: "Jun 2024"
+    description: |
+      - Taught discussion once a week to a class of **30** students.
+      - Hosted in-person and remote office hours **3** times a week.
+      - Led bi-weekly 2 hour “stay late and code” homework session with tutors and students.
+      - Collaborated with 2 other TAs to grade assignments and exams for **200+** students.
+    logo_url: "../assets/images/cv/ucdavis-logo.png"
+    teck_stack: 
+      - "Python"
+      - "Jupyter Notebooks"
 
   - title: "Software Engineer II"
     company: "Axon Enterprise"
@@ -83,9 +87,11 @@ experience:
     start_date: "Jun 2022"
     end_date: "Sep 2023"
     description: |
-      - Digitized workflows for 11,000 users in police departments and courts nationwide by building warrant and booking search in Go, TypeScript, Elasticsearch, and React.
-      - Scaled the records search pipeline with a reference-based messaging approach for document ingestion over Kafka.
-      - Kept record search running 24/7 in production by analyzing alerts and performance anomalies with Prometheus, Grafana, and Splunk and developing fixes.
+      - Designed and implemented backend services and features using **Go**, **TypeScript**, and **React.js** to digitize workflows for 11k+ end users.
+      - Responsible for diagnosing performance anomalies and production alerts leveraging **Prometheus**, **Grafana**, and **Splunk** to ensure **99.9%** uptime.
+      - Enabled the records search pipeline to ingest large documents with a reference-based messaging approach for **Kafka**, using Azure Blob Storage
+       to store large messages during indexing, reducing daily ingestion alerts by at least **50%**.
+      - Partnered with Technical Project Manager to gather customer requirements to build feature requests and fix bugs that were encountered.
     logo_url: "../assets/images/cv/axon-logo-square.jpg"
     teck_stack: 
       - "Golang"
@@ -106,8 +112,8 @@ experience:
     start_date: "Nov 2020"
     end_date: "Jun 2022"
     description: |
-      - Enabled contactless payments at gas pumps for PayPal's 400 million customers by building Java and Spring Boot microservices hosting GraphQL APIs, including store search.
-      - Ensured QR code checkout was responsive during downstream latency spikes by implementing session polling in the QR Codes team's Java API gateway, so slow dependencies degraded gracefully instead of timing out for users.
+      - Built **Java** and **Spring Boot** microservices and **GraphQL** APIs to support contactless payment features as well as store search for millions of customers.
+      - Improved QR code checkout responsiveness by **50%** during downstream latency spikes by implementing session polling in the QR Codes team's API gateway using Java and Spring Boot.
     logo_url: "../assets/images/cv/paypal-logo-square.jpg"
     teck_stack: 
       - "Java"
@@ -121,9 +127,9 @@ experience:
     start_date: "Dec 2018"
     end_date: "Nov 2020"
     description: |
-      - Improved the offers experience for ~140 million card members by integrating Groupon offers into the Amex registered card system via a RESTful API in Java and Spring Boot.
-      - Reduced remediation memo posting time by 93% by replacing the manual process with a Go microservice backed by PostgreSQL.
-      - Mentored 2 new engineers through onboarding, serving as their go-to person for technical and process questions 
+      - Integrated Groupon Offers into the Amex card system using **Java** and **Spring Boot** to improve the offer experience for **140m+** users over 3 months.
+      - Reduced memo posting time by **93%** by automating manual processes by building **Go**-based microservices over the course of 12 months.
+      - Mentored **2** junior engineers by onboarding them to the tech stack, providing technical guidance, and supporting them through code review.
     logo_url: "../assets/images/cv/amex-logo-square.png"
     teck_stack: 
       - "Golang"
@@ -137,8 +143,8 @@ experience:
     start_date: "Jun 2016"
     end_date: "Dec 2018"
     description: |
-      - Modernized the C++ unit test suite for safety-critical electronic flight instrument driver libraries.
-      - Led a team of 3 interns in revising and streamlining the company's software development process documents for FAA certification.
+      - Modernized the **C++** unit test suite for safety-critical electronic flight instrument driver libraries.
+      - Led a team of **3** interns in revising and streamlining the company's software development process documents for FAA certification.
     logo_url: "../assets/images/cv/astro-logo.png"
     teck_stack: 
       - "C++"
@@ -146,7 +152,7 @@ experience:
 
 skills:
   languages:
-    - "Python (2 years)"
+    - "Python (2 years in academia and personal projects)"
     - "Golang (2 years)"
     - "Java (4 years)"
     - "C++ (2 years)"
